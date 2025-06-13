@@ -9,3 +9,7 @@ Dalam kehidupan, setiap manusia memiliki kebutuhan dasar yang harus dipenuhi dem
 Namun, seiring dengan perkembangan zaman dan meningkatnya taraf hidup masyarakat, rumah tidak lagi hanya dipandang dari sisi fungsionalnya saja. Kini, rumah juga menjadi simbol status sosial dan ukuran pencapaian hidup seseorang. Kepemilikan rumah yang besar, mewah, dan berlokasi strategis sering kali dianggap sebagai representasi kesuksesan. Fenomena ini didorong oleh faktor sosial seperti gengsi dan keinginan untuk diakui atau dipandang lebih tinggi oleh lingkungan sekitar. Tak bisa dimungkiri, dalam masyarakat modern, citra dan penilaian terhadap seseorang kerap kali dibentuk oleh apa yang mereka miliki—termasuk rumah yang mereka huni. [2](https://doi.org/10.36040/jati.v7i1.6343).
 
 Dalam proyek ini, akan dibuat beberapa model Machine Learning yang kemudian dievaluasi untuk membandingkan model mana yang hasil prediksinya paling baik. Model yang unggul tersebut diharapkan dapat diandalkan untuk memprediksi kisaran harga rumah yang sesuai berdasarkan kondisi dan karakteristik spesifik dari properti yang dinilai.
+
+## Business Understanding
+
+### Problem Statement
