@@ -80,7 +80,7 @@ Algortima ini bekerja dengan cara boosting, yaitu meningkatkan kinerja model sec
 ## Data Understanding
 Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama [Yamac Eren Ay](https://www.kaggle.com/yamaerenay) dan pertama kali diunggah pada bulan Januari 2025. Dataset tersebut berjudul "Spotify Dataset 1921-2020, 160k+ Tracks"
 
-Sumber Data: [https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-1921-2020-160k-tracks](Spotify Dataset 1921-2020).
+Sumber Data: [Spotify Dataset 1921-2020](https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-1921-2020-160k-tracks)
 
 ### Explanatory Data Analysis
 
