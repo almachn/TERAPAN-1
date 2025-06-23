@@ -85,7 +85,7 @@ Sumber Data: [https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-1921-20
 ### Explanatory Data Analysis
 
 1. Distribusi Tiap-Tiap Fitur
-[Distribusi Fitur](Distribusi Fitur.png).
+![Distribusi Fitur](Distribusi Fitur.png).
 
 
 
