@@ -30,7 +30,58 @@ Popularitas lagu adalah sesuatu yang kompleks dan dipengaruhi oleh banyak faktor
 
 ### Solution Statements
 
-- Melakukan eksplorasi data terhadap lebih dari 170.000 lagu dari Spotify (1921–2020).
-- Menggunakan algoritma machine learning regresi (Linear Regression, Random Forest, Gradient Boosting, XGBoost) untuk memprediksi tingkat popularitas.
+**1. Menggunakan algoritma machine learning regresi (Linear Regression, Random Forest, Gradient Boosting, XGBoost) untuk memprediksi tingkat popularitas.**
+Linear Regression (Sebagai Baseline):
+
+Regresi linier (Linear Regression) adalah salah satu algoritma dasar dalam pembelajaran mesin yang digunakan untuk memodelkan hubungan antara satu atau lebih variabel independen (karakteristik) dan variabel dependen (tujuan) yang bersifat kontinu. Tujuan algoritma ini adalah menemukan garis regresi terbaik yang dapat memprediksi nilai tujuan berdasarkan nilai input.
+
+Dalam regresi linier sederhana (satu variabel independen), hubungan antara input (X) dan output (Y) dimodelkan dalam bentuk persamaan linier:
+
+Y=aX+b
+
+di mana:
+
+    a adalah koefisien regresi yang menunjukkan kemiringan garis (slope),
+
+    b adalah intercept (titik potong dengan sumbu Y).
+
+Untuk kasus dengan lebih dari satu variabel input (regresi linear berganda), persamaan diperluas menjadi:
+
+Y=a1​X1​+a2​X2​+…+an​Xn​+b
+
+Algoritma ini menggunakan metode Ordinary Least Squares (OLS) untuk meminimalkan selisih kuadrat (mean squared error) antara nilai prediksi dan nilai aktual, sehingga diperoleh model yang paling sesuai dengan data pelatihan.
+
+Algoritma ini akan digunakan sebagai model dasar dalam proyek ini. Tujuannya sendiri adalah untuk mendapatkan tolok ukur performa paling sederhana. Seberapa baik kita bisa memprediksi popularitas hanya dengan mengasumsikan hubungannya lurus (linier) dengan fitur-fitur audio?
+
+Random Forest Regressor (Model Standar yang Kuat):
+
+Random Forest adalah algoritma machine learning berbasis ensemble learning yang digunakan untuk tugas klasifikasi maupun regresi. Algoritma ini bekerja dengan membangun sekumpulan pohon keputusan (decision trees) selama proses pelatihan, lalu menggabungkan hasil prediksi dari masing-masing pohon untuk menghasilkan keputusan akhir yang lebih akurat dan stabil.
+
+Pada dasarnya, Random Forest merupakan pengembangan dari algoritma Decision Tree, dengan tujuan mengurangi risiko overfitting dan meningkatkan akurasi model. Alih-alih mengandalkan satu pohon keputusan, Random Forest membuat banyak pohon (disebut forest) dan melakukan voting (untuk klasifikasi) atau rata-rata (untuk regresi) dari hasil prediksi semua pohon.
+
+    Peran: Ini adalah model "pekerja keras" kita. Random Forest mampu menangkap hubungan yang lebih rumit (non-linier) antara fitur audio dan popularitas. Biasanya, model ini akan memberikan peningkatan performa yang signifikan dari Linear Regression.
+
+XGBoost (Extreme Gradient Boosting) (Model Performa Tinggi):
+
+XGBoost (Extreme Gradient Boosting) adalah algoritma machine learning berbasis ensemble learning yang mengimplementasikan teknik gradient boosting dengan berbagai optimasi untuk meningkatkan performa dan efisiensi. Algoritma ini dikembangkan oleh Tianqi Chen dan sangat populer karena kemampuannya menghasilkan model dengan akurasi tinggi, waktu pelatihan cepat, serta fleksibilitas tinggi untuk tugas klasifikasi dan regresi.
+
+Algortima ini bekerja dengan cara boosting, yaitu meningkatkan kinerja model secara iteratif:
+
+1. Menghitung kesalahan dari prediksi sebelumnya (residuals).
+
+2. Membangun pohon baru untuk memprediksi kesalahan tersebut.
+
+3. Menggabungkan prediksi semua pohon dengan bobot tertentu untuk menghasilkan output akhir.
+
+    Peran: Ini adalah model "juara" kita. XGBoost seringkali memberikan akurasi tertinggi untuk data tabular seperti ini. Kita akan menggunakannya untuk melihat apakah kita bisa mendapatkan performa terbaik.
 - Menganalisis hubungan fitur audio seperti danceability, energy, valence, acousticness, dan lainnya terhadap skor popularitas.
 - Menyajikan visualisasi tren audio dari masa ke masa untuk memahami evolusi musik secara kuantitatif.
+
+## Data Understanding
+Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama (Yamac Eren Ay)[https://www.kaggle.com/yamaerenay] dan pertama kali diunggah pada bulan Januari 2025. Dataset tersebut berjudul "Spotify Dataset 1921-2020, 160k+ Tracks"
+
+Sumber Data: (https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-1921-2020-160k-tracks)[Spotify Dataset 1921-2020].
+
+
+
+
