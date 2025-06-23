@@ -84,8 +84,52 @@ Sumber Data: [https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-1921-20
 
 ### Explanatory Data Analysis
 
-1. Distribusi Tiap-Tiap Fitur
-[Distribusi Fitur]([assets/Distribusi-Fitur.png](![Distribusi Fitur-Fitur Audio Utama](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/Distribusi-Fitur.png)
+**1. Distribusi Tiap-Tiap Fitur**
+[Distribusi Fitur-Fitur Audio Utama](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/Distribusi-Fitur.png)
+
+Secara keseluruhan, dataset Spotify ini berisi musik yang cenderung:
+1. Modern & Non-Akustik: Ditandai dengan energy dan loudness yang tinggi, serta acousticness yang rendah.
+2. Berorientasi Vokal: instrumentalness dan speechiness sangat rendah.
+3. Cukup Danceable & Beragam Mood: danceability terpusat di tengah-atas, dan valence tersebar merata.
+4. Didominasi Lagu Tidak Populer: Sebagian besar data memiliki skor popularity nol.
+
+**2. Hubungan Antar Fitur**
+[Hubungan Antar Fitur](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/
+
+Hasil dari diagram ini menunjukan bahwa, faktor kontekstual seperti tahun rilis (year) dan faktor teknis produksi (loudness) ternyata memiliki hubungan yang lebih kuat dengan popularitas daripada karakteristik musikal seperti danceability atau valence. Juga, tidak ada satu pun fitur audio yang memiliki korelasi sangat tinggi (misalnya, di atas 0.8) dengan popularity. Hal ini menegaskan bahwa popularitas lagu adalah fenomena yang kompleks dan tidak bisa ditentukan oleh satu faktor saja.
+
+**3. Evolusi Musik**
+[Evolusi Musik](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/Evolusi-Karakteristik-Musik.png)
+
+Dalam diagram ini ditunjukan, bahwa musik populer telah berevolusi dari sesuatu yang akustik, organik, dan lebih dinamis menjadi sesuatu yang keras, energik, digital, dan berorientasi pada ritme. Temuan Hasil ini juga memperkuat temuan sebelumnya dari heatmap, yaitu mengapa year menjadi fitur yang sangat penting. Kolom year secara tidak langsung menjadi rangkuman dari semua tren perubahan drastis ini.
+
+## Data Preparation
+
+Secara garis besar, persiapan data dala  proyek ini terdiri dari 5 tahapan utama:
+
+1.  **Penanganan Data Duplikat dan Kosong:**
+    * **Tindakan:** Langkah pertama adalah memeriksa adanya baris data yang duplikat dan data yang kosong (`missing values`) di setiap kolom.
+    * **Hasil:** Ditemukan bahwa dataset ini berkualitas sangat baik dan tidak memiliki data kosong sama sekali
+      
+2.  **Pemilihan Fitur (Feature Selection):**
+    * **Tindakan:** Semua kolom yang ada dipilih. Kolom-kolom seperti **`id`**, **`name`** (judul lagu), **`artists`**, dan **`release_date`** telah dihapus.
+    * **Alasan:** Kolom-kolom tersebut dihapus karena merupakan *identifier* unik, data teks yang kompleks, atau informasinya sudah terwakili oleh fitur lain (`year`), sehingga tidak cocok untuk langsung digunakan dalam model regresi.
+
+3.  **Pemisahan Fitur (X) dan Target (y):**
+    * **Tindakan:** Setelah memilih fitur yang relevan, dataset dibagi menjadi dua bagian:
+        * **`X`**: Berisi semua kolom fitur yang akan digunakan sebagai input (seperti year, danceability, energy, dll.).
+        * **`y`**: Hanya berisi satu kolom target yang akan diprediksi, yaitu **popularity**.
+
+4.  **Pembagian Dataset (Train-Test Split):**
+    * **Tindakan:** Data `X` dan `y` kemudian dibagi menjadi dua set terpisah menggunakan `train_test_split`:
+        * **Data Latih (Training Set):** Sebesar 80% dari total data, digunakan untuk "mengajari" model.
+        * **Data Uji (Testing Set):** Sebesar 20% dari total data, "disembunyikan" dari model dan hanya digunakan di akhir untuk mengukur performa secara objektif.
+
+5.  **Penskalaan Fitur (Feature Scaling):**
+    * **Tindakan:** Merupakan langkah transformasi terakhir. StandardScaler digunakan pada `X_train` dan `X_test`.
+    * **Alasan:** Fitur-fitur dalam data memiliki skala yang sangat berbeda (misalnya, duration_ms bernilai ratusan ribu, sementara danceability hanya 0-1). Scaling bertujuan untuk menyamakan skala semua fitur tersebut agar model dapat menilai pengaruh setiap fitur secara adil, tanpa bias terhadap fitur dengan angka yang besar.
+
+## Modeling 
 
 
 
