@@ -51,15 +51,11 @@ Y=a1​X1​+a2​X2​+…+an​Xn​+b
 
 Algoritma ini menggunakan metode Ordinary Least Squares (OLS) untuk meminimalkan selisih kuadrat (mean squared error) antara nilai prediksi dan nilai aktual, sehingga diperoleh model yang paling sesuai dengan data pelatihan.
 
-Algoritma ini akan digunakan sebagai model dasar dalam proyek ini. Tujuannya sendiri adalah untuk mendapatkan tolok ukur performa paling sederhana. Seberapa baik kita bisa memprediksi popularitas hanya dengan mengasumsikan hubungannya lurus (linier) dengan fitur-fitur audio?
-
 Random Forest Regressor (Model Standar yang Kuat):
 
 Random Forest adalah algoritma machine learning berbasis ensemble learning yang digunakan untuk tugas klasifikasi maupun regresi. Algoritma ini bekerja dengan membangun sekumpulan pohon keputusan (decision trees) selama proses pelatihan, lalu menggabungkan hasil prediksi dari masing-masing pohon untuk menghasilkan keputusan akhir yang lebih akurat dan stabil.
 
 Pada dasarnya, Random Forest merupakan pengembangan dari algoritma Decision Tree, dengan tujuan mengurangi risiko overfitting dan meningkatkan akurasi model. Alih-alih mengandalkan satu pohon keputusan, Random Forest membuat banyak pohon (disebut forest) dan melakukan voting (untuk klasifikasi) atau rata-rata (untuk regresi) dari hasil prediksi semua pohon.
-
-    Peran: Ini adalah model "pekerja keras" kita. Random Forest mampu menangkap hubungan yang lebih rumit (non-linier) antara fitur audio dan popularitas. Biasanya, model ini akan memberikan peningkatan performa yang signifikan dari Linear Regression.
 
 XGBoost (Extreme Gradient Boosting) (Model Performa Tinggi):
 
@@ -72,10 +68,6 @@ Algortima ini bekerja dengan cara boosting, yaitu meningkatkan kinerja model sec
 2. Membangun pohon baru untuk memprediksi kesalahan tersebut.
 
 3. Menggabungkan prediksi semua pohon dengan bobot tertentu untuk menghasilkan output akhir.
-
-    Peran: Ini adalah model "juara" kita. XGBoost seringkali memberikan akurasi tertinggi untuk data tabular seperti ini. Kita akan menggunakannya untuk melihat apakah kita bisa mendapatkan performa terbaik.
-- Menganalisis hubungan fitur audio seperti danceability, energy, valence, acousticness, dan lainnya terhadap skor popularitas.
-- Menyajikan visualisasi tren audio dari masa ke masa untuk memahami evolusi musik secara kuantitatif.
 
 ## Data Understanding
 Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama [Yamac Eren Ay](https://www.kaggle.com/yamaerenay) dan pertama kali diunggah pada bulan Januari 2025. Dataset tersebut berjudul "Spotify Dataset 1921-2020, 160k+ Tracks"
@@ -94,7 +86,7 @@ Secara keseluruhan, dataset Spotify ini berisi musik yang cenderung:
 4. Didominasi Lagu Tidak Populer: Sebagian besar data memiliki skor popularity nol.
 
 **2. Hubungan Antar Fitur**
-![Hubungan Antar Fitur](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/
+![Hubungan Antar Fitur](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/111.png)
 
 Hasil dari diagram ini menunjukan bahwa, faktor kontekstual seperti tahun rilis (year) dan faktor teknis produksi (loudness) ternyata memiliki hubungan yang lebih kuat dengan popularitas daripada karakteristik musikal seperti danceability atau valence. Juga, tidak ada satu pun fitur audio yang memiliki korelasi sangat tinggi (misalnya, di atas 0.8) dengan popularity. Hal ini menegaskan bahwa popularitas lagu adalah fenomena yang kompleks dan tidak bisa ditentukan oleh satu faktor saja.
 
@@ -130,6 +122,31 @@ Secara garis besar, persiapan data dala  proyek ini terdiri dari 5 tahapan utama
     * **Alasan:** Fitur-fitur dalam data memiliki skala yang sangat berbeda (misalnya, duration_ms bernilai ratusan ribu, sementara danceability hanya 0-1). Scaling bertujuan untuk menyamakan skala semua fitur tersebut agar model dapat menilai pengaruh setiap fitur secara adil, tanpa bias terhadap fitur dengan angka yang besar.
 
 ## Modeling 
+
+Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanfaatkan untuk membangun model. Pada tahap ini, akan dikembangkan dua model yang berbeda sebagai bahan perbandingan
+- **Pembuatan model menggunakan algoritma Linear Regression**. Algoritma ini akan digunakan sebagai model dasar dalam proyek ini. Tujuannya sendiri adalah untuk mendapatkan tolok ukur performa paling sederhana. Seberapa baik kita bisa memprediksi popularitas hanya dengan mengasumsikan hubungannya lurus (linier) dengan fitur-fitur audio?
+- **Pembuatan model mengguankan algoritma Random Forest**. Model ini diasumsikan sebagai menjadi model "pekerja keras" karena kemampuannya menangkap hubungan yang lebih rumit (non-linier) antara fitur audio dan popularitas. Biasanya, model ini akan memberikan peningkatan performa yang signifikan dari Linear Regression.
+- **Pembuatan model menggunakan algoritma XGBoost**. XGBoost seringkali memberikan akurasi tertinggi untuk data tabular seperti ini. Model ini akan digunakan untuk melihat apakah hasil uji bisa mendapatkan performa terbaik.
+
+## Evaluasi 
+
+Proses evaluasi pada model ini menggunakan RMSE (Root Mean Squared Error) dan R-Squared (R2 Score) 
+
+### Hasil Evaluasi Model Linear Regresion
+
+Pada gambar di atas, dapat dilihat bahwa saat proses pengujian, hasil prediksi tidak akurat dengan nilai sebenarnya.
+Secara RMSE, diketahui bahwa rata-rata prediksi skor popularitas yang dibuat oleh model meleset sekitar 10.7 poin dari skor popularitas yang sebenarnya (pada skala 0-100).
+Secara R2 Squared, diketahui bahwa model mampu menjelaskan sekitar 75.9% dari keragaman data yang memengaruhi popularitas sebuah lagu berdasarkan fitur-fitur yang diberikan. Sisa ~24% lainnya dipengaruhi oleh faktor-faktor yang tidak bisa ditangkap oleh model ini. 
+
+### Hasil Evaluasi Model Random Forest 
+
+Berdasarkan gambar di atas, algoritma Random Forest menunjukkan performa yang lebih baik dibandingkan LinearRegression, ditandai dengan nilai hasil Root Mean Squared Error (RMSE) yang lebih rendah, yakni sebesar 9.5558 dan R Squared (R2 Score) sebesar 0.8092. Hasil ini menunjukan bahwa Random Forest lebih efektif dalam melakukan prediksi pada dataset yang digunakan.
+
+### Hasil Evaluasi Model XGBoost 
+
+Model XGboost memberikan nilai hasil evaluasi terbaik, dengan besaran RMSE 9.5049 dan R2-Squared 0.8112. 
+
+Berikut merupakan perbandingan hasil evaluasi ketiga model
 
 
 
