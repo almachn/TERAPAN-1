@@ -134,19 +134,26 @@ Proses evaluasi pada model ini menggunakan RMSE (Root Mean Squared Error) dan R-
 
 ### Hasil Evaluasi Model Linear Regresion
 
+![Evaluasi Model Linear Regression](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/LR.png)
+
 Pada gambar di atas, dapat dilihat bahwa saat proses pengujian, hasil prediksi tidak akurat dengan nilai sebenarnya.
 Secara RMSE, diketahui bahwa rata-rata prediksi skor popularitas yang dibuat oleh model meleset sekitar 10.7 poin dari skor popularitas yang sebenarnya (pada skala 0-100).
 Secara R2 Squared, diketahui bahwa model mampu menjelaskan sekitar 75.9% dari keragaman data yang memengaruhi popularitas sebuah lagu berdasarkan fitur-fitur yang diberikan. Sisa ~24% lainnya dipengaruhi oleh faktor-faktor yang tidak bisa ditangkap oleh model ini. 
 
 ### Hasil Evaluasi Model Random Forest 
 
+![Evaluasi Model Random Forest](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/RF.png)
+
 Berdasarkan gambar di atas, algoritma Random Forest menunjukkan performa yang lebih baik dibandingkan LinearRegression, ditandai dengan nilai hasil Root Mean Squared Error (RMSE) yang lebih rendah, yakni sebesar 9.5558 dan R Squared (R2 Score) sebesar 0.8092. Hasil ini menunjukan bahwa Random Forest lebih efektif dalam melakukan prediksi pada dataset yang digunakan.
 
 ### Hasil Evaluasi Model XGBoost 
 
+![Evaluasi Model XGBoost](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/XGBoost.png)
+
 Model XGboost memberikan nilai hasil evaluasi terbaik, dengan besaran RMSE 9.5049 dan R2-Squared 0.8112. 
 
 Berikut merupakan perbandingan hasil evaluasi ketiga model
+![Evaluasi Model Linear Regression](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/perbandingan-final.png)
 
 
 
