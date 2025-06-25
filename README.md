@@ -160,15 +160,15 @@ Berikut merupakan perbandingan hasil evaluasi ketiga model
 ![Evaluasi Model Linear Regression](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/perbandingan-final.png)
 
 
-[1]: (https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96)
+[1]: https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96
 
-[2]: (https://doi.org/10.32877/bt.v7i3.2228)
+[2]: https://doi.org/10.32877/bt.v7i3.2228
 
-[3]: (https://doi.org/10.35970/infotekmesin.v14i1.1751)
+[3]: https://doi.org/10.35970/infotekmesin.v14i1.1751
 
-[4]: (https://doi.org/10.36040/jati.v7i5.7308)
+[4]: https://doi.org/10.36040/jati.v7i5.7308
 
-[5]: (https://doi.org/10.29207/resti.v5i1.2815)
+[5]: https://doi.org/10.29207/resti.v5i1.2815
 
 
 
