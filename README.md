@@ -31,7 +31,8 @@ Popularitas lagu adalah sesuatu yang kompleks dan dipengaruhi oleh banyak faktor
 ### Solution Statements
 
 **1. Menggunakan algoritma machine learning regresi (Linear Regression, Random Forest, Gradient Boosting, XGBoost) untuk memprediksi tingkat popularitas.**
-Linear Regression (Sebagai Baseline):
+
+**Linear Regression (Sebagai Baseline):**
 
 Regresi linier (Linear Regression) adalah salah satu algoritma dasar dalam pembelajaran mesin yang digunakan untuk memodelkan hubungan antara satu atau lebih variabel independen (karakteristik) dan variabel dependen (tujuan) yang bersifat kontinu. Tujuan algoritma ini adalah menemukan garis regresi terbaik yang dapat memprediksi nilai tujuan berdasarkan nilai input [2](https://doi.org/10.32877/bt.v7i3.2228).
 
@@ -43,14 +44,14 @@ Untuk kasus dengan lebih dari satu variabel input (regresi linear berganda), per
 ![Rumus Linear Regression Berganda](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-lr-berganda.jpg)
 
 
-Random Forest Regressor (Model Standar yang Kuat):
+**Random Forest Regressor (Model Standar yang Kuat):**
 
 Random Forest adalah algoritma machine learning berbasis ensemble learning yang digunakan untuk tugas klasifikasi maupun regresi. Algoritma ini bekerja dengan membangun sekumpulan pohon keputusan (decision trees) selama proses pelatihan, lalu menggabungkan hasil prediksi dari masing-masing pohon untuk menghasilkan keputusan akhir yang lebih akurat dan stabil [3](https://doi.org/10.35970/infotekmesin.v14i1.1751).
 
 Pada dasarnya, Random Forest merupakan pengembangan dari algoritma Decision Tree, dengan tujuan mengurangi risiko overfitting dan meningkatkan akurasi model. Alih-alih mengandalkan satu pohon keputusan, Random Forest membuat banyak pohon (disebut forest) dan melakukan voting (untuk klasifikasi) atau rata-rata (untuk regresi) dari hasil prediksi semua pohon.
 ![Model Random Forest](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-rf.png)
 
-XGBoost (Extreme Gradient Boosting) (Model Performa Tinggi):
+**XGBoost (Extreme Gradient Boosting) (Model Performa Tinggi):**
 
 XGBoost (Extreme Gradient Boosting) adalah algoritma machine learning berbasis ensemble learning yang mengimplementasikan teknik gradient boosting dengan berbagai optimasi untuk meningkatkan performa dan efisiensi [4](https://doi.org/10.36040/jati.v7i5.7308). Algoritma ini dikembangkan oleh Tianqi Chen dan sangat populer karena kemampuannya menghasilkan model dengan akurasi tinggi, waktu pelatihan cepat, serta fleksibilitas tinggi untuk tugas klasifikasi dan regresi.
 
@@ -127,7 +128,11 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 Proses evaluasi pada model ini menggunakan RMSE (Root Mean Squared Error) dan R-Squared (R2 Score) 
 
+Root Mean Squared Error (RMSE) digunakan untuk mengukur selisih antara nilai prediksi dan nilai aktual. Semakin besar nilai RMSE, maka tingkat akurasi model menjadi semakin rendah. Sebaliknya, semakin kecil nilai RMSE, maka akurasi model dapat dikatakan semakin tinggi [5](https://doi.org/10.29207/resti.v5i1.2815)
+
 ![1. Root Mean Squared Error](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/RMSE.png)
+
+Sementara R-Squared nilai berada dalam rentang 0 hingga 1. Semakin tinggi nilai R2 yang diperoleh, maka semakin baik model dalam menjelaskan variasi data, yang berarti tingkat akurasinya semakin tinggi. Sebaliknya, nilai R2 yang rendah menunjukkan bahwa model kurang mampu menangkap pola dalam data.
 
 ![2. R-Squared](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/R2.webp)
 
@@ -155,10 +160,15 @@ Berikut merupakan perbandingan hasil evaluasi ketiga model
 ![Evaluasi Model Linear Regression](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/perbandingan-final.png)
 
 
-[1]: https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96)
+[1]: (https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96)
+
 [2]: (https://doi.org/10.32877/bt.v7i3.2228)
+
 [3]: (https://doi.org/10.35970/infotekmesin.v14i1.1751)
+
 [4]: (https://doi.org/10.36040/jati.v7i5.7308)
+
+[5]: (https://doi.org/10.29207/resti.v5i1.2815)
 
 
 
