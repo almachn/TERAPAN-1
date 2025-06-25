@@ -73,7 +73,13 @@ Sumber Data: [Spotify Dataset 1921-2020](https://www.kaggle.com/datasets/yamaere
 
 ### Explanatory Data Analysis
 
-**1. Distribusi Tiap-Tiap Fitur**
+**1. Statistik Dasar Data**
+
+![Statistik Dasar 1](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/dasar-1.png)
+
+![Statistik Dasar 2](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/dasar-2.png)
+
+**2. Distribusi Tiap-Tiap Fitur**
 ![Distribusi Fitur-Fitur Audio Utama](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/Distribusi-Fitur.png)
 
 Secara keseluruhan, dataset Spotify ini berisi musik yang cenderung:
