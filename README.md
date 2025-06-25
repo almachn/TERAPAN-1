@@ -49,6 +49,7 @@ Untuk kasus dengan lebih dari satu variabel input (regresi linear berganda), per
 Random Forest adalah algoritma machine learning berbasis ensemble learning yang digunakan untuk tugas klasifikasi maupun regresi. Algoritma ini bekerja dengan membangun sekumpulan pohon keputusan (decision trees) selama proses pelatihan, lalu menggabungkan hasil prediksi dari masing-masing pohon untuk menghasilkan keputusan akhir yang lebih akurat dan stabil [3](https://doi.org/10.35970/infotekmesin.v14i1.1751).
 
 Pada dasarnya, Random Forest merupakan pengembangan dari algoritma Decision Tree, dengan tujuan mengurangi risiko overfitting dan meningkatkan akurasi model. Alih-alih mengandalkan satu pohon keputusan, Random Forest membuat banyak pohon (disebut forest) dan melakukan voting (untuk klasifikasi) atau rata-rata (untuk regresi) dari hasil prediksi semua pohon.
+
 ![Model Random Forest](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-rf.png)
 
 **XGBoost (Extreme Gradient Boosting) (Model Performa Tinggi):**
