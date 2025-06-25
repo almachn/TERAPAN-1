@@ -4,7 +4,7 @@
 Proyek ini mengeksplorasi dataset lagu Spotify dari tahun 1921 hingga 2020 dengan berbagai fitur akustik, tren popularitas, dan karakteristik audio
 
 ### Latar Belakang
-Musik telah menjadi bagian tak terpisahkan dari kehidupan manusia—bukan hanya sebagai bentuk hiburan, tetapi juga sebagai media ekspresi, identitas budaya, bahkan alat politik dan sosial. Dalam satu abad terakhir, industri musik mengalami perubahan yang sangat masif, baik dari sisi gaya, teknologi produksi, hingga cara distribusinya. Dari piringan hitam ke kaset, dari CD ke MP3, hingga kini mendominasi melalui layanan streaming digital seperti Spotify.
+Musik telah menjadi bagian tak terpisahkan dari kehidupan manusia—bukan hanya sebagai bentuk hiburan, tetapi juga sebagai media ekspresi, identitas budaya, bahkan alat politik dan sosial. Dalam satu abad terakhir, industri musik mengalami perubahan yang sangat masif, baik dari sisi gaya, teknologi produksi, hingga cara distribusinya. Dari piringan hitam ke kaset, dari CD ke MP3, hingga kini mendominasi melalui layanan streaming digital seperti Spotify[1](https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96).
 
 Di era streaming, data adalah raja. Spotify, sebagai salah satu platform musik terbesar di dunia, menyimpan jejak digital dari jutaan lagu dan interaksinya dengan pengguna. Setiap lagu yang diunggah ke platform ini tidak hanya terdiri dari judul dan artisnya saja, tetapi juga diperkaya dengan beragam fitur audio: mulai dari danceability, energy, acousticness, valence, hingga tempo dan liveness. Fitur-fitur ini dihasilkan dari pemrosesan sinyal digital dan menjadi representasi numerik dari karakteristik suara lagu tersebut.
 
@@ -33,33 +33,26 @@ Popularitas lagu adalah sesuatu yang kompleks dan dipengaruhi oleh banyak faktor
 **1. Menggunakan algoritma machine learning regresi (Linear Regression, Random Forest, Gradient Boosting, XGBoost) untuk memprediksi tingkat popularitas.**
 Linear Regression (Sebagai Baseline):
 
-Regresi linier (Linear Regression) adalah salah satu algoritma dasar dalam pembelajaran mesin yang digunakan untuk memodelkan hubungan antara satu atau lebih variabel independen (karakteristik) dan variabel dependen (tujuan) yang bersifat kontinu. Tujuan algoritma ini adalah menemukan garis regresi terbaik yang dapat memprediksi nilai tujuan berdasarkan nilai input.
+Regresi linier (Linear Regression) adalah salah satu algoritma dasar dalam pembelajaran mesin yang digunakan untuk memodelkan hubungan antara satu atau lebih variabel independen (karakteristik) dan variabel dependen (tujuan) yang bersifat kontinu. Tujuan algoritma ini adalah menemukan garis regresi terbaik yang dapat memprediksi nilai tujuan berdasarkan nilai input[2](https://doi.org/10.32877/bt.v7i3.2228).
 
-Dalam regresi linier sederhana (satu variabel independen), hubungan antara input (X) dan output (Y) dimodelkan dalam bentuk persamaan linier:
+Dalam regresi linier sederhana (satu variabel independen), hubungan antara input dan output dimodelkan dalam bentuk persamaan linier:
+![Rumus Sederhana Linear Regression](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-lr.png)
 
-Y=aX+b
-
-di mana:
-
-    a adalah koefisien regresi yang menunjukkan kemiringan garis (slope),
-
-    b adalah intercept (titik potong dengan sumbu Y).
 
 Untuk kasus dengan lebih dari satu variabel input (regresi linear berganda), persamaan diperluas menjadi:
+![Rumus Linear Regression Berganda](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-lr-2.png)
 
-Y=a1​X1​+a2​X2​+…+an​Xn​+b
-
-Algoritma ini menggunakan metode Ordinary Least Squares (OLS) untuk meminimalkan selisih kuadrat (mean squared error) antara nilai prediksi dan nilai aktual, sehingga diperoleh model yang paling sesuai dengan data pelatihan.
 
 Random Forest Regressor (Model Standar yang Kuat):
 
-Random Forest adalah algoritma machine learning berbasis ensemble learning yang digunakan untuk tugas klasifikasi maupun regresi. Algoritma ini bekerja dengan membangun sekumpulan pohon keputusan (decision trees) selama proses pelatihan, lalu menggabungkan hasil prediksi dari masing-masing pohon untuk menghasilkan keputusan akhir yang lebih akurat dan stabil.
+Random Forest adalah algoritma machine learning berbasis ensemble learning yang digunakan untuk tugas klasifikasi maupun regresi. Algoritma ini bekerja dengan membangun sekumpulan pohon keputusan (decision trees) selama proses pelatihan, lalu menggabungkan hasil prediksi dari masing-masing pohon untuk menghasilkan keputusan akhir yang lebih akurat dan stabil[3](https://doi.org/10.35970/infotekmesin.v14i1.1751).
 
 Pada dasarnya, Random Forest merupakan pengembangan dari algoritma Decision Tree, dengan tujuan mengurangi risiko overfitting dan meningkatkan akurasi model. Alih-alih mengandalkan satu pohon keputusan, Random Forest membuat banyak pohon (disebut forest) dan melakukan voting (untuk klasifikasi) atau rata-rata (untuk regresi) dari hasil prediksi semua pohon.
+![Model Random Forest](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-rf.png)
 
 XGBoost (Extreme Gradient Boosting) (Model Performa Tinggi):
 
-XGBoost (Extreme Gradient Boosting) adalah algoritma machine learning berbasis ensemble learning yang mengimplementasikan teknik gradient boosting dengan berbagai optimasi untuk meningkatkan performa dan efisiensi. Algoritma ini dikembangkan oleh Tianqi Chen dan sangat populer karena kemampuannya menghasilkan model dengan akurasi tinggi, waktu pelatihan cepat, serta fleksibilitas tinggi untuk tugas klasifikasi dan regresi.
+XGBoost (Extreme Gradient Boosting) adalah algoritma machine learning berbasis ensemble learning yang mengimplementasikan teknik gradient boosting dengan berbagai optimasi untuk meningkatkan performa dan efisiensi[4](https://doi.org/10.36040/jati.v7i5.7308). Algoritma ini dikembangkan oleh Tianqi Chen dan sangat populer karena kemampuannya menghasilkan model dengan akurasi tinggi, waktu pelatihan cepat, serta fleksibilitas tinggi untuk tugas klasifikasi dan regresi.
 
 Algortima ini bekerja dengan cara boosting, yaitu meningkatkan kinerja model secara iteratif:
 
@@ -68,6 +61,8 @@ Algortima ini bekerja dengan cara boosting, yaitu meningkatkan kinerja model sec
 2. Membangun pohon baru untuk memprediksi kesalahan tersebut.
 
 3. Menggabungkan prediksi semua pohon dengan bobot tertentu untuk menghasilkan output akhir.
+
+![Model Random Forest](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-xgboost.png)
 
 ## Data Understanding
 Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama [Yamac Eren Ay](https://www.kaggle.com/yamaerenay) dan pertama kali diunggah pada bulan Januari 2025. Dataset tersebut berjudul "Spotify Dataset 1921-2020, 160k+ Tracks"
@@ -131,6 +126,8 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 ## Evaluasi 
 
 Proses evaluasi pada model ini menggunakan RMSE (Root Mean Squared Error) dan R-Squared (R2 Score) 
+![Root Mean Squared Error](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/RMSE.png)
+![R-Squared](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/R2.png)
 
 ### Hasil Evaluasi Model Linear Regresion
 
@@ -154,6 +151,11 @@ Model XGboost memberikan nilai hasil evaluasi terbaik, dengan besaran RMSE 9.504
 
 Berikut merupakan perbandingan hasil evaluasi ketiga model
 ![Evaluasi Model Linear Regression](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/perbandingan-final.png)
+
+
+[1](https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96)
+[2](https://doi.org/10.32877/bt.v7i3.2228)
+[3](https://doi.org/10.35970/infotekmesin.v14i1.1751)
 
 
 
