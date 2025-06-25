@@ -40,7 +40,7 @@ Dalam regresi linier sederhana (satu variabel independen), hubungan antara input
 
 
 Untuk kasus dengan lebih dari satu variabel input (regresi linear berganda), persamaan diperluas menjadi:
-![Rumus Linear Regression Berganda](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-lr-2.png)
+![Rumus Linear Regression Berganda](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-lr-berganda.jpg)
 
 
 Random Forest Regressor (Model Standar yang Kuat):
@@ -62,7 +62,7 @@ Algortima ini bekerja dengan cara boosting, yaitu meningkatkan kinerja model sec
 
 3. Menggabungkan prediksi semua pohon dengan bobot tertentu untuk menghasilkan output akhir.
 
-![Model Random Forest](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-xgboost.png)
+![Model Random Forest](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/model-xgboost.webp)
 
 ## Data Understanding
 Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama [Yamac Eren Ay](https://www.kaggle.com/yamaerenay) dan pertama kali diunggah pada bulan Januari 2025. Dataset tersebut berjudul "Spotify Dataset 1921-2020, 160k+ Tracks"
@@ -127,7 +127,7 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 Proses evaluasi pada model ini menggunakan RMSE (Root Mean Squared Error) dan R-Squared (R2 Score) 
 ![Root Mean Squared Error](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/RMSE.png)
-![R-Squared](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/R2.png)
+![R-Squared](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/R2.webp)
 
 ### Hasil Evaluasi Model Linear Regresion
 
