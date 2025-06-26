@@ -65,21 +65,28 @@ Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kond
 
 **Struktur dan Tipe Data:**  Dataset awal memiliki beberapa fitur penting yang merepresentasikan karakteristik lagu baik dari sisi metadata maupun aspek audio. Berikut ini adalah penjelasan ringkas tiap fitur:
 
-| Nama Kolom     | Tipe Data       | Status     | Deskripsi & Alasan Penggunaan/Penghapusan                                                         |
-| -------------- | --------------- | -----------| --------------------------------------------------------------------------------------------------|
-| `id`           | String          |  Dihapus   | Identifier unik, tidak memuat informasi prediktif, berisiko menyebabkan overfitting.               |
-| `name`         | String          |  Dihapus   | Judul lagu, bersifat unik, tidak memberikan pola yang berguna untuk prediksi.                      |
-| `artists`      | String          |  Dihapus   | Jumlah artis sangat banyak (puluhan ribu), terlalu kompleks untuk diolah secara efisien.           |
-| `release_date` | String/Date     |  Dihapus   | Redundan dengan `year`; tanggal dan bulan tidak menambah nilai prediktif signifikan.               |
-| `year`         | Integer         |  Digunakan | Representasi waktu yang sangat relevan; terbukti sebagai prediktor dominan dalam popularitas lagu. |
-| `acousticness` | Float (0–1)     |  Digunakan | Mengukur seberapa akustik lagu; karakteristik teknis yang penting dalam gaya produksi.             |
-| `danceability` | Float (0–1)     |  Digunakan | Mengukur seberapa enak lagu untuk ditarikan; membantu mendeteksi mood lagu.                        |
-| `energy`       | Float (0–1)     |  Digunakan | Menggambarkan intensitas lagu; sering dikaitkan dengan popularitas dalam genre modern.             |
-| `loudness`     | Float (Desibel) |  Digunakan | Kekerasan lagu; salah satu fitur teknis yang dominan memengaruhi popularitas.                      |
-| `tempo`        | Float (BPM)     |  Digunakan | Kecepatan lagu dalam beat per minute; relevan dengan genre dan suasana lagu.                       |
-| `duration_ms`  | Integer (ms)    |  Digunakan | Durasi lagu; dapat berhubungan dengan strategi produksi dan preferensi audiens.                    |
-| `speechiness`  | Float (0–1)     |  Digunakan | Mengukur elemen "bicara" dalam lagu; penting untuk mengenali lagu dengan spoken word atau rap.     |
-| `popularity`   | Integer (0–100) |  Target    | Target variabel yang ingin diprediksi — skor popularitas lagu di Spotify.                          |
+| Nama Kolom         | Tipe Data       | Status    | Deskripsi & Alasan Penggunaan/Penghapusan                                                                 |
+| ------------------ | --------------- | --------- | --------------------------------------------------------------------------------------------------------- |
+| `id`               | String          | Dihapus   | Identifier unik, tidak memuat informasi prediktif, berisiko menyebabkan overfitting.                      |
+| `name`             | String          | Dihapus   | Judul lagu, bersifat unik, tidak memberikan pola yang berguna untuk prediksi.                             |
+| `artists`          | String          | Dihapus   | Jumlah artis sangat banyak (puluhan ribu), terlalu kompleks untuk diolah secara efisien.                  |
+| `release_date`     | String/Date     | Dihapus   | Redundan dengan `year`; tanggal dan bulan tidak menambah nilai prediktif signifikan.                      |
+| `explicit`         | Boolean/Integer | Digunakan | Menunjukkan apakah lagu mengandung konten eksplisit; bisa relevan dengan audiens dan popularitas.         |
+| `year`             | Integer         | Digunakan | Representasi waktu yang sangat relevan; terbukti sebagai prediktor dominan dalam popularitas lagu.        |
+| `acousticness`     | Float (0–1)     | Digunakan | Mengukur seberapa akustik lagu; karakteristik teknis penting dalam produksi musik.                        |
+| `danceability`     | Float (0–1)     | Digunakan | Mengukur seberapa enak lagu untuk ditarikan; berkaitan dengan mood dan genre musik.                       |
+| `energy`           | Float (0–1)     | Digunakan | Menggambarkan intensitas dan kekuatan lagu; dapat memengaruhi daya tarik pendengar.                       |
+| `instrumentalness` | Float (0–1)     | Digunakan | Mengukur kemungkinan sebuah lagu adalah instrumental; memengaruhi gaya musik dan audiens target.          |
+| `key`              | Integer (0–11)  | Digunakan | Representasi pitch dasar lagu (C=0, C#/Db=1, ..., B=11); relevan untuk musik teoritis, meskipun terbatas. |
+| `liveness`         | Float (0–1)     | Digunakan | Mengukur kemungkinan lagu direkam dalam konser/live; bisa memberi nuansa khusus dalam lagu.               |
+| `loudness`         | Float (Desibel) | Digunakan | Kekerasan lagu secara teknis; termasuk fitur dengan korelasi tinggi terhadap popularitas.                 |
+| `mode`             | Integer (0/1)   | Digunakan | Menunjukkan apakah lagu dalam nada mayor (1) atau minor (0); terkait emosi lagu.                          |
+| `speechiness`      | Float (0–1)     | Digunakan | Mengukur seberapa banyak unsur bicara dalam lagu; penting untuk genre spoken/rap.                         |
+| `tempo`            | Float (BPM)     | Digunakan | Kecepatan lagu dalam beat per minute; penting untuk mendefinisikan dinamika musik.                        |
+| `duration_ms`      | Integer (ms)    | Digunakan | Durasi lagu dalam milidetik; bisa berkaitan dengan format konsumsi (radio vs streaming).                  |
+| `valence`          | Float (0–1)     | Digunakan | Mengukur positiveness emosional lagu; makin tinggi, makin “bahagia” nuansa lagu tersebut.                 |
+| `popularity`       | Integer (0–100) | Target | Target variabel yang ingin diprediksi — skor popularitas lagu di Spotify.                                     |
+
      
 **Nilai yang Hilang dan Kosong:** Berdasarkan hasil eksplorasi awal menggunakan fungsi info(), tidak ditemukan nilai kosong (null) pada kolom-kolom utama di subset dataset. Meskipun demikian, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data, khususnya jika di kemudian hari dataset diperluas atau digabungkan dengan data lain yang berpotensi mengandung nilai hilang.
 
