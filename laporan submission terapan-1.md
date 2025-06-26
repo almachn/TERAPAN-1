@@ -83,8 +83,7 @@ Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kond
 | `popularity`   | numerik     | Target prediksi; skor popularitas lagu (label)                         |
 
      
-      diketahui bahwa seluruh kolom dalam subset dataset tidak mengandung nilai kosong (null).
-   4. **Nilai yang Hilang:** Meskipun tidak ditemukan nilai kosong pada kolom-kolom utama, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data saat pengolahan lebih lanjut dilakukan pada dataset lengkap.
+   4. **Nilai yang Hilang dan Kosong:**Berdasarkan hasil eksplorasi awal menggunakan fungsi info(), tidak ditemukan nilai kosong (null) pada kolom-kolom utama di subset dataset. Meskipun demikian, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data, khususnya jika di kemudian hari dataset diperluas atau digabungkan dengan data lain yang berpotensi mengandung nilai hilang.
    5. **Data Duplikat:** Tidak terdapat baris yang duplikat yang ditemukan. Meski demikian, drop_duplicates() tetap dijalankan untuk menjaga konsistensi data secara menyeluruh.
    6. **Penghapusan Kolom:** Kolom yang dihapus di antaranya adalah kolom **id, name, artists, release_date**
       - Baik id maupun name merupakan identifier unik yang berbeda untuk setiap lagu. Karena bersifat individual dan tidak mewakili pola tertentu, fitur-fitur ini tidak memberikan informasi yang berguna bagi model dalam memprediksi popularitas lagu lainnya. Jika tetap disertakan dalam proses pelatihan, model cenderung hanya akan "menghafal" data berdasarkan ID atau judul lagu, alih-alih "belajar" dari pola umum, yang akhirnya bisa menyebabkan overfitting.
