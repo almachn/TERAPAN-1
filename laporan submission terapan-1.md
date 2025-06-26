@@ -89,11 +89,9 @@ Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kond
 
 Sebagaimana yang telah disebutkan dalam tabel:
 
-      - Baik id maupun name merupakan identifier unik yang berbeda untuk setiap lagu. Karena bersifat individual dan tidak mewakili pola tertentu, fitur-fitur ini tidak memberikan informasi yang berguna bagi model dalam memprediksi popularitas lagu lainnya. Jika tetap disertakan dalam proses pelatihan, model cenderung hanya akan "menghafal" data berdasarkan ID atau judul lagu, alih-alih "belajar" dari pola umum, yang akhirnya bisa menyebabkan overfitting.
-      
-      - Kolom artist termasuk dalam fitur kategorikal berbasis teks yang sangat kompleks. Hal ini disebabkan oleh jumlah artis unik yang sangat banyak — mencapai puluhan ribu entitas. Jika setiap artis dikonversi menjadi fitur numerik, hal ini akan menciptakan dimensi yang sangat tinggi dan justru membuat model menjadi terlalu kompleks dan tidak efisien untuk dipelajari. Akibatnya, performa model bisa menurun dan waktu komputasi meningkat drastis.
-      
-      - Kolom release_date tergolong sebagai fitur yang redundan karena informasi utamanya—yaitu kapan lagu dirilis—sudah secara efektif diwakili oleh kolom year yang lebih ringkas dan mudah diproses. Menambahkan detail seperti tanggal dan bulan hanya akan menambah kompleksitas data tanpa memberikan kontribusi signifikan terhadap kemampuan prediksi model.
+- Baik id maupun name merupakan identifier unik yang berbeda untuk setiap lagu. Karena bersifat individual dan tidak mewakili pola tertentu, fitur-fitur ini tidak memberikan informasi yang berguna bagi model dalam memprediksi popularitas lagu lainnya. Jika tetap disertakan dalam proses pelatihan, model cenderung hanya akan "menghafal" data berdasarkan ID atau judul lagu, alih-alih "belajar" dari pola umum, yang akhirnya bisa menyebabkan overfitting.
+- Kolom artist termasuk dalam fitur kategorikal berbasis teks yang sangat kompleks. Hal ini disebabkan oleh jumlah artis unik yang sangat banyak — mencapai puluhan ribu entitas. Jika setiap artis dikonversi menjadi fitur numerik, hal ini akan menciptakan dimensi yang sangat tinggi dan justru membuat model menjadi terlalu kompleks dan tidak efisien untuk dipelajari. Akibatnya, performa model bisa menurun dan waktu komputasi meningkat drastis.
+- Kolom release_date tergolong sebagai fitur yang redundan karena informasi utamanya—yaitu kapan lagu dirilis—sudah secara efektif diwakili oleh kolom year yang lebih ringkas dan mudah diproses. Menambahkan detail seperti tanggal dan bulan hanya akan menambah kompleksitas data tanpa memberikan kontribusi signifikan terhadap kemampuan prediksi model.
 
 ### Explanatory Data Analysis
 
