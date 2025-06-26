@@ -23,7 +23,7 @@ Popularitas lagu adalah sesuatu yang kompleks dan dipengaruhi oleh banyak faktor
 
 ### Goal
 
-1. Mengidentifikasi fitur-fitur audio apa yang paling berkontribusi terhadap popularitas lagu.
+1. Mengidentifikasi fitur-fitur apa yang paling berkontribusi terhadap popularitas lagu.
 2. Menganalisis bagaimana tren musik berubah dari tahun ke tahun berdasarkan fitur akustik.
 3. Membangun model prediksi popularitas lagu berdasarkan fitur-fiturnya.
 4. Memberikan wawasan strategis bagi industri musik berbasis data historis.
@@ -42,7 +42,7 @@ Untuk mencapai tujuan utama, yakni memprediksi popularits lagu berdasarkan karak
 
 - Pendekatan: Algoritma ensemble berbasis decision tree yang mampu menangani hubungan non-linear serta interaksi kompleks antar fitur. [3](https://doi.org/10.35970/infotekmesin.v14i1.1751).
 
-- Teknik: Menggunakan RandomForestRegressor dari sklearn.ensemble untuk membuat banyak decision tree dan menggabungkan prediksinya. Model ini juga memberikan fitur feature_importances_ untuk mengevaluasi pengaruh relatif setiap fitur terhadap prediksi.
+- Teknik: Menggunakan Random Forest Regressor dari sklearn.ensemble untuk membuat banyak decision tree dan menggabungkan prediksinya. Model ini juga memberikan fitur feature_importances_ untuk mengevaluasi pengaruh relatif setiap fitur terhadap prediksi.
 
 **3. XGBoost Regressor**
 
@@ -61,9 +61,9 @@ Karakteristik Dataset Asli (Spotify Dataset 1921-2020 160K Tracks)
 - Tipe Data: 9 Kolom Float, 6 Kolom Integer, dan 4 Kolom Object
 
 **Kondisi Data:** Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kondisi dataset guna mengevaluasi kualitas data serta mengidentifikasi potensi permasalahan. Pemeriksaan ini mencakup beberapa aspek penting, antara lain:
-1. **Struktur dan Tipe Data:** Melalui fungsi info(), diketahui bahwa seluruh kolom dalam subset dataset tidak mengandung nilai kosong (null).
-2. **Nilai yang Hilang:** Meskipun tidak ditemukan nilai kosong pada kolom-kolom utama, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data saat pengolahan lebih lanjut dilakukan pada dataset lengkap.
-3. **Data Duplikat:** Tidak terdapat baris yang duplikat yang ditemukan. Meski demikian, drop_duplicates() tetap dijalankan untuk menjaga konsistensi data secara menyeluruh.
+   1. **Struktur dan Tipe Data:** Melalui fungsi info(), diketahui bahwa seluruh kolom dalam subset dataset tidak mengandung nilai kosong (null).
+   2. **Nilai yang Hilang:** Meskipun tidak ditemukan nilai kosong pada kolom-kolom utama, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data saat pengolahan lebih lanjut dilakukan pada dataset lengkap.
+   3. **Data Duplikat:** Tidak terdapat baris yang duplikat yang ditemukan. Meski demikian, drop_duplicates() tetap dijalankan untuk menjaga konsistensi data secara menyeluruh.
 
 ### Explanatory Data Analysis
 
