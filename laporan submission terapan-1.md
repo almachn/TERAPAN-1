@@ -34,28 +34,29 @@ Untuk mencapai tujuan utama, yakni memprediksi popularits lagu berdasarkan karak
 
 **1. Linear Regression**
 
-- Pendekatan: Model regresi linier digunakan sebagai baseline sederhana yang mengasumsikan hubungan linier antara fitur dan target popularitas. [2](https://doi.org/10.32877/bt.v7i3.2228)
+- **Pendekatan:** Model regresi linier digunakan sebagai baseline sederhana yang mengasumsikan hubungan linier antara fitur dan target popularitas. [2](https://doi.org/10.32877/bt.v7i3.2228)
 
 - Teknik: Menggunakan LinearRegression dari sklearn untuk mempelajari hubungan antara fitur numerik seperti year, acousticness, danceability, dll., terhadap skor popularitas. Koefisien model dianalisis untuk mengukur besarnya pengaruh masing-masing fitur (dalam bentuk nilai absolut).
 
 **2. Random Forest Regressor:**
 
-- Pendekatan: Algoritma ensemble berbasis decision tree yang mampu menangani hubungan non-linear serta interaksi kompleks antar fitur. [3](https://doi.org/10.35970/infotekmesin.v14i1.1751).
+- **Pendekatan:** Algoritma ensemble berbasis decision tree yang mampu menangani hubungan non-linear serta interaksi kompleks antar fitur. [3](https://doi.org/10.35970/infotekmesin.v14i1.1751).
 
-- Teknik: Menggunakan Random Forest Regressor dari sklearn.ensemble untuk membuat banyak decision tree dan menggabungkan prediksinya. Model ini juga memberikan fitur feature_importances_ untuk mengevaluasi pengaruh relatif setiap fitur terhadap prediksi.
+- **Teknik:** Menggunakan Random Forest Regressor dari sklearn.ensemble untuk membuat banyak decision tree dan menggabungkan prediksinya. Model ini juga memberikan fitur feature_importances_ untuk mengevaluasi pengaruh relatif setiap fitur terhadap prediksi.
 
 **3. XGBoost Regressor**
 
-- Pendekatan: Model gradient boosting yang kuat dan efisien, dirancang untuk performa tinggi dalam berbagai jenis data. [4](https://doi.org/10.36040/jati.v7i5.7308).
+- **Pendekatan:** Model gradient boosting yang kuat dan efisien, dirancang untuk performa tinggi dalam berbagai jenis data. [4](https://doi.org/10.36040/jati.v7i5.7308).
 
-- Teknik: Menggunakan XGBRegressor dari library xgboost, yang membangun model secara bertahap dengan mengoreksi kesalahan dari prediksi sebelumnya. Fitur penting diambil berdasarkan bobot kontribusi setiap fitur dalam proses boosting.
+- **Teknik:** Menggunakan XGBRegressor dari library xgboost, yang membangun model secara bertahap dengan mengoreksi kesalahan dari prediksi sebelumnya. Fitur penting diambil berdasarkan bobot kontribusi setiap fitur dalam proses boosting.
 
 ## Data Understanding
-Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama [Yamac Eren Ay](https://www.kaggle.com/yamaerenay) dan pertama kali diunggah pada bulan Januari 2025. Dataset tersebut berjudul "Spotify Dataset 1921-2020, 160k+ Tracks"
+Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama **[Yamac Eren Ay](https://www.kaggle.com/yamaerenay)** dan pertama kali diunggah pada bulan Januari 2025. Dataset tersebut berjudul "Spotify Dataset 1921-2020, 160k+ Tracks"
 
-Sumber Data: [Spotify Dataset 1921-2020](https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-1921-2020-160k-tracks)
+**Sumber Data:** [Spotify Dataset 1921-2020](https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-1921-2020-160k-tracks)
 
-Karakteristik Dataset Asli (Spotify Dataset 1921-2020 160K Tracks)
+**Karakteristik Dataset Asli (Spotify Dataset 1921-2020 160K Tracks):**
+
 - Jumlah Kolom: 19 Kolom (valence, year, acousticness, artists, danceability. duration_ms, energy, explicit, id, instrumentalness, key, liveness, loudness, mode, name, popularity, release_date, speechiness, tempo)
 - Jumlah Entries: 170,653 Entries pada Tiap-Tiap Kolom
 - Tipe Data: 9 Kolom Float, 6 Kolom Integer, dan 4 Kolom Object
@@ -74,20 +75,24 @@ Statistik Dasar Data [1] ![Statistik Dasar 1](https://raw.githubusercontent.com/
 Statistik Dasar Data [2] ![Statistik Dasar 2](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/dasar-2.png)
 
 **2. Distribusi Tiap-Tiap Fitur**
+
 ![Distribusi Fitur-Fitur Audio Utama](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/Distribusi-Fitur.png)
 
 Secara keseluruhan, dataset Spotify ini berisi musik yang cenderung:
+
 1. Modern & Non-Akustik: Ditandai dengan energy dan loudness yang tinggi, serta acousticness yang rendah.
 2. Berorientasi Vokal: instrumentalness dan speechiness sangat rendah.
 3. Cukup Danceable & Beragam Mood: danceability terpusat di tengah-atas, dan valence tersebar merata.
 4. Didominasi Lagu Tidak Populer: Sebagian besar data memiliki skor popularity nol.
 
 **3. Hubungan Antar Fitur**
+
 ![Hubungan Antar Fitur](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/111.png)
 
 Hasil dari diagram ini menunjukan bahwa, faktor kontekstual seperti tahun rilis (year) dan faktor teknis produksi (loudness) ternyata memiliki hubungan yang lebih kuat dengan popularitas daripada karakteristik musikal seperti danceability atau valence. Juga, tidak ada satu pun fitur audio yang memiliki korelasi sangat tinggi (misalnya, di atas 0.8) dengan popularity. Hal ini menegaskan bahwa popularitas lagu adalah fenomena yang kompleks dan tidak bisa ditentukan oleh satu faktor saja.
 
 **4. Evolusi Musik**
+
 ![Evolusi Musik](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/Evolusi-Karakteristik-Musik.png)
 
 Dalam diagram ini ditunjukan, bahwa musik populer telah berevolusi dari sesuatu yang akustik, organik, dan lebih dinamis menjadi sesuatu yang keras, energik, digital, dan berorientasi pada ritme. Temuan Hasil ini juga memperkuat temuan sebelumnya dari heatmap, yaitu mengapa year menjadi fitur yang sangat penting. Kolom year secara tidak langsung menjadi rangkuman dari semua tren perubahan drastis ini.
@@ -101,7 +106,7 @@ Secara garis besar, persiapan data dala  proyek ini terdiri dari 5 tahapan utama
     * **Hasil:** Ditemukan bahwa dataset ini berkualitas sangat baik dan tidak memiliki data kosong sama sekali
       
 2.  **Pemilihan Fitur (Feature Selection):**
-    * **Tindakan:** Semua kolom yang ada dipilih. Kolom-kolom seperti **`id`**, **`name`** (judul lagu), **`artists`**, dan **`release_date`** telah dihapus.
+    * **Tindakan:** Semua kolom yang ada dipilih. Kolom-kolom seperti **id**, **name** (judul lagu), **artists**, dan **release_date** telah dihapus.
     * **Alasan:** Kolom-kolom tersebut dihapus karena merupakan *identifier* unik, data teks yang kompleks, atau informasinya sudah terwakili oleh fitur lain (`year`), sehingga tidak cocok untuk langsung digunakan dalam model regresi.
 
 3.  **Pemisahan Fitur (X) dan Target (y):**
@@ -120,7 +125,7 @@ Secara garis besar, persiapan data dala  proyek ini terdiri dari 5 tahapan utama
 
 ## Modeling 
 
-Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanfaatkan untuk membangun model. Pada tahap ini, akan dikembangkan dua model yang berbeda sebagai bahan perbandingan
+Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanfaatkan untuk membangun model. Pada tahap ini, akan dikembangkan tiga model yang berbeda sebagai bahan perbandingan
 
 **Pembuatan model menggunakan algoritma Linear Regression**.
 
@@ -134,8 +139,8 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
-  1. Cepat dan Efisien: Linear Regression sangat ringan secara komputasi, jadi cocok sebagai model baseline untuk menguji apakah fitur-fitur seperti year, acousticness, dll. punya hubungan linier dengan popularity.
-  2. Interpretatif: Nilai koefisiennya bisa langsung menunjukkan arah dan kekuatan pengaruh setiap fitur. Misalnya, koefisien besar pada year, maka langsung terlihat bahwa semakin baru lagu, semakin populer.
+  1. Cepat dan Efisien: Linear Regression sangat ringan secara komputasi, sehingga cocok sebagai model baseline untuk menguji apakah fitur-fitur seperti year, acousticness, dll. yang mempunyai hubungan linier dengan popularity.
+  2. Interpretatif: Nilai koefisiennya dapat langsung menunjukkan arah dan kekuatan pengaruh setiap fitur. Misalnya, koefisien besar pada year, maka langsung terlihat bahwa semakin baru lagu, semakin populer.
 
    **Kekurangan:**
   1. Terlalu simpel untuk fenomena kompleks: Popularitas lagu bukan cuma dipengaruhi satu-dua fitur dengan hubungan lurus. Misalnya, pengaruh energy atau danceability mungkin baru terasa jika dikombinasikan dengan fitur lain — hal ini tidak bisa ditangkap oleh model linier.
@@ -156,12 +161,12 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
-  1. Menangkap pola non-linear dan interaksi fitur: Random Forest mampu mengenali bahwa misalnya lagu yang akustik tapi energik punya popularitas tinggi di tahun tertentu. Ini membuatnya jauh lebih fleksibel dibanding Linear Regression.
+  1. Menangkap pola non-linear dan interaksi fitur: Random Forest mampu mengenali bahwa misalnya lagu yang akustik tapi energik punya popularitas tinggi di tahun tertentu. Hal ini membuatnya jauh lebih fleksibel dibanding Linear Regression.
   2. Tahan terhadap outlier: Popularitas lagu yang ekstrem (sangat tinggi atau sangat rendah) tidak akan mengganggu model terlalu parah.
-  3. Memberikan informasi feature importance: Berguna banget untuk tahu fitur apa yang secara keseluruhan paling banyak digunakan oleh model saat memutuskan prediksi — misalnya, loudness, year, dan danceability.
+  3. Memberikan informasi feature importance: Sangat berguna untuk mengetahui fitur apa yang secara keseluruhan paling banyak digunakan oleh model saat memutuskan prediksi. Misalnya, loudness, year, dan danceability.
 
    **Kekurangan:**
-  1. Kurang transparan: Meskipun bisa tahu feature importance, bagaimana kombinasi fitur menghasilkan nilai prediksi tertentu tidak bisa diketahui secara persis. Hal ini membuat hasilnya agak susah dijelaskan ke non-teknikal stakeholder.
+  1. Kurang transparan: Meskipun feature importance bisa diketahui, tetapi bagaimana kombinasi fitur menghasilkan nilai prediksi tertentu tidak bisa diketahui secara persis. Hal ini membuat hasilnya agak sulit untuk dijelaskan ke non-teknikal stakeholder.
   2. Model besar dan berat: Untuk dataset besar seperti Spotify (170k+ lagu), proses training bisa lumayan memakan waktu dan RAM, apalagi jika tidak dibatasi max_depth atau jumlah pohon (n_estimators).
 
 - **Pembuatan model menggunakan algoritma XGBoost**.
@@ -179,7 +184,7 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
-  1. Presisi tinggi: XGBoost sangat powerful dalam mengejar akurasi prediksi. Cocok dalam proyek ini yang memiliki tujuan membuat model prediksi popularitas dengan performa optimal.
+  1. Presisi tinggi: XGBoost sangat powerful dalam mengejar akurasi prediksi. Cocok digunakan dalam proyek ini yang memiliki tujuan membuat model prediksi popularitas dengan performa optimal.
   2. Menangani kompleksitas dengan 'elegan': Model ini dapat menangkap pengaruh fitur yang hanya muncul di kondisi tertentu (contoh: lagu akustik cenderung tidak populer kecuali jika rilis di tahun 2010 ke atas).
   3. Mempunyai regularisasi bawaan: Membantu mengurangi risiko overfitting — cocok untuk dataset besar dengan banyak fitur seperti ini.
 
@@ -193,7 +198,7 @@ Proses evaluasi pada model ini menggunakan RMSE (Root Mean Squared Error) dan R-
 
 Formula RMSE:
 
-
+![Formula RMSE](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/formulaRMSE.png)
 
 **Cara Kerja:** RMSE mengukur seberapa jauh prediksi model meleset dari nilai sebenarnya, dihitung dengan cara:
 
@@ -204,6 +209,7 @@ Formula RMSE:
 
 Formula R-Squared:
 
+![Formula R2](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/formulaR2.png)
 
 **Cara Kerja:** R² mengukur seberapa baik model menjelaskan variasi data target. Skor ini membandingkan performa model dengan baseline paling sederhana: rata-rata semua nilai popularity.
 
