@@ -63,7 +63,7 @@ Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kond
 - **Jumlah Entries:** 170,653 Entries pada Tiap-Tiap Kolom
 - **Tipe Data:** 9 Kolom Float, 6 Kolom Integer, dan 4 Kolom Object
 
-**Struktur dan Tipe Data:**  Dataset awal memiliki beberapa fitur penting yang merepresentasikan karakteristik lagu baik dari sisi metadata maupun aspek audio. Berikut ini adalah penjelasan ringkas tiap fitur sebelum dilakukan:
+**Struktur dan Tipe Data:**  Dataset awal memiliki beberapa fitur penting yang merepresentasikan karakteristik lagu baik dari sisi metadata maupun aspek audio. Berikut ini adalah penjelasan ringkas tiap fitur:
 
 | Nama Kolom     | Tipe Data       | Status     | Deskripsi & Alasan Penggunaan/Penghapusan                                                         |
 | -------------- | --------------- | -----------| --------------------------------------------------------------------------------------------------|
