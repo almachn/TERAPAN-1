@@ -63,7 +63,7 @@ Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kond
 - **Jumlah Entries:** 170,653 Entries pada Tiap-Tiap Kolom
 - **Tipe Data:** 9 Kolom Float, 6 Kolom Integer, dan 4 Kolom Object
 
-   1. **Struktur dan Tipe Data:**  Dataset awal memiliki beberapa fitur penting yang merepresentasikan karakteristik lagu baik dari sisi metadata maupun aspek audio. Berikut ini adalah penjelasan ringkas tiap fitur sebelum dilakukan:
+**Struktur dan Tipe Data:**  Dataset awal memiliki beberapa fitur penting yang merepresentasikan karakteristik lagu baik dari sisi metadata maupun aspek audio. Berikut ini adalah penjelasan ringkas tiap fitur sebelum dilakukan:
 
    | Nama Kolom     | Tipe Data   | Deskripsi Singkat                                                      |
 | -------------- | ----------- | ---------------------------------------------------------------------- |
@@ -82,9 +82,11 @@ Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kond
 | `popularity`   | numerik     | Target prediksi; skor popularitas lagu (label)                         |
 
      
-   4. **Nilai yang Hilang dan Kosong:**Berdasarkan hasil eksplorasi awal menggunakan fungsi info(), tidak ditemukan nilai kosong (null) pada kolom-kolom utama di subset dataset. Meskipun demikian, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data, khususnya jika di kemudian hari dataset diperluas atau digabungkan dengan data lain yang berpotensi mengandung nilai hilang.
-   5. **Data Duplikat:** Tidak terdapat baris yang duplikat yang ditemukan. Meski demikian, drop_duplicates() tetap dijalankan untuk menjaga konsistensi data secara menyeluruh.
-   6. **Penghapusan Kolom:** Kolom yang dihapus di antaranya adalah kolom **id, name, artists, release_date**
+**Nilai yang Hilang dan Kosong:** Berdasarkan hasil eksplorasi awal menggunakan fungsi info(), tidak ditemukan nilai kosong (null) pada kolom-kolom utama di subset dataset. Meskipun demikian, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data, khususnya jika di kemudian hari dataset diperluas atau digabungkan dengan data lain yang berpotensi mengandung nilai hilang.
+
+**Data Duplikat:** Tidak terdapat baris yang duplikat yang ditemukan. Meski demikian, drop_duplicates() tetap dijalankan untuk menjaga konsistensi data secara menyeluruh.
+
+**Penghapusan Kolom:** Kolom yang dihapus di antaranya adalah kolom **id, name, artists, release_date**
       - Baik id maupun name merupakan identifier unik yang berbeda untuk setiap lagu. Karena bersifat individual dan tidak mewakili pola tertentu, fitur-fitur ini tidak memberikan informasi yang berguna bagi model dalam memprediksi popularitas lagu lainnya. Jika tetap disertakan dalam proses pelatihan, model cenderung hanya akan "menghafal" data berdasarkan ID atau judul lagu, alih-alih "belajar" dari pola umum, yang akhirnya bisa menyebabkan overfitting.
       - Kolom artist termasuk dalam fitur kategorikal berbasis teks yang sangat kompleks. Hal ini disebabkan oleh jumlah artis unik yang sangat banyak — mencapai puluhan ribu entitas. Jika setiap artis dikonversi menjadi fitur numerik, hal ini akan menciptakan dimensi yang sangat tinggi dan justru membuat model menjadi terlalu kompleks dan tidak efisien untuk dipelajari. Akibatnya, performa model bisa menurun dan waktu komputasi meningkat drastis.
       - Kolom release_date tergolong sebagai fitur yang redundan karena informasi utamanya—yaitu kapan lagu dirilis—sudah secara efektif diwakili oleh kolom year yang lebih ringkas dan mudah diproses. Menambahkan detail seperti tanggal dan bulan hanya akan menambah kompleksitas data tanpa memberikan kontribusi signifikan terhadap kemampuan prediksi model.
