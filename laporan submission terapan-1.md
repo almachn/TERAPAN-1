@@ -72,9 +72,13 @@ Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kond
 
 **1. Informasi Dataset**
 
-Statistik Dasar Data [1] ![Statistik Dasar 1](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/dasar-1.png)
+Statistik Dasar Data [1]
 
-Statistik Dasar Data [2] ![Statistik Dasar 2](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/dasar-2.png)
+![Statistik Dasar 1](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/dasar-1.png)
+
+Statistik Dasar Data [2]
+
+![Statistik Dasar 2](https://raw.githubusercontent.com/almachn/TERAPAN-1/main/assets/dasar-2.png)
 
 **2. Distribusi Tiap-Tiap Fitur**
 
@@ -129,7 +133,7 @@ Secara garis besar, persiapan data dala  proyek ini terdiri dari 5 tahapan utama
 
 Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanfaatkan untuk membangun model. Pada tahap ini, akan dikembangkan tiga model yang berbeda sebagai bahan perbandingan
 
-**Pembuatan model menggunakan algoritma Linear Regression**.
+### Pembuatan model menggunakan algoritma Linear Regression
 
 *Algoritma ini akan digunakan sebagai model dasar dalam proyek ini. Tujuannya sendiri adalah untuk mendapatkan tolok ukur performa paling sederhana. Seberapa baik kita bisa memprediksi popularitas hanya dengan mengasumsikan hubungannya lurus (linier) dengan fitur-fitur audio?*
 
@@ -148,7 +152,7 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
   1. Terlalu simpel untuk fenomena kompleks: Popularitas lagu bukan cuma dipengaruhi satu-dua fitur dengan hubungan lurus. Misalnya, pengaruh energy atau danceability mungkin baru terasa jika dikombinasikan dengan fitur lain — hal ini tidak bisa ditangkap oleh model linier.
   2. Rentan underfitting: Karena model ini tidak bisa menangkap pola non-linear atau interaksi fitur, hasilnya bisa terlalu sederhana dan tidak mencerminkan kenyataan yang kompleks di dunia musik streaming.
 
-- **Pembuatan model mengguankan algoritma Random Forest**.
+### Pembuatan model mengguankan algoritma Random Forest
 
 *Model ini diasumsikan sebagai menjadi model "pekerja keras" karena kemampuannya menangkap hubungan yang lebih rumit (non-linier) antara fitur audio dan popularitas. Biasanya, model ini akan memberikan peningkatan performa yang signifikan dari Linear Regression.*
 
@@ -171,7 +175,7 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
   1. Kurang transparan: Meskipun feature importance bisa diketahui, tetapi bagaimana kombinasi fitur menghasilkan nilai prediksi tertentu tidak bisa diketahui secara persis. Hal ini membuat hasilnya agak sulit untuk dijelaskan ke non-teknikal stakeholder.
   2. Model besar dan berat: Untuk dataset besar seperti Spotify (170k+ lagu), proses training bisa lumayan memakan waktu dan RAM, apalagi jika tidak dibatasi max_depth atau jumlah pohon (n_estimators).
 
-- **Pembuatan model menggunakan algoritma XGBoost**.
+### Pembuatan model menggunakan algoritma XGBoost
 
 *XGBoost seringkali memberikan akurasi tertinggi untuk data tabular seperti ini. Model ini akan digunakan untuk melihat apakah hasil uji bisa mendapatkan performa terbaik.*
 
@@ -196,7 +200,7 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 ## Evaluasi 
 
-Proses evaluasi pada model ini menggunakan RMSE (Root Mean Squared Error) dan R-Squared (R2 Score) 
+**Proses evaluasi pada model ini menggunakan RMSE (Root Mean Squared Error) dan R-Squared (R2 Score)**
 
 Formula RMSE:
 
@@ -219,7 +223,7 @@ Formula R-Squared:
 2. R² = 0 → model nggak lebih baik dari sekadar menebak rata-rata.
 3. R² < 0 → model lebih buruk dari rata-rata.
 
-**Hasil Evaluasi**
+### Hasil Evaluasi
 
 **1. Linear Regression**
 
