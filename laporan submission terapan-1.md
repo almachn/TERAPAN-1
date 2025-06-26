@@ -141,19 +141,19 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 - **Parameter Penting:**
   
-  1. fit_intercept: Apakah model harus menghitung intercept (bias/konstanta) atau tidak.
-  2. normalize / standardize: Untuk normalisasi fitur (sudah deprecated di versi baru scikit-learn).
-  3. n_jobs: Jumlah core CPU untuk paralel
+  - **fit_intercept:** Apakah model harus menghitung intercept (bias/konstanta) atau tidak.
+  - **normalize / standardize:** Untuk normalisasi fitur (sudah deprecated di versi baru scikit-learn).
+  - **n_jobs:** Jumlah core CPU untuk paralel
     
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
-  1. Cepat dan Efisien: Linear Regression sangat ringan secara komputasi, sehingga cocok sebagai model baseline untuk menguji apakah fitur-fitur seperti year, acousticness, dll. yang mempunyai hubungan linier dengan popularity.
-  2. Interpretatif: Nilai koefisiennya dapat langsung menunjukkan arah dan kekuatan pengaruh setiap fitur. Misalnya, koefisien besar pada year, maka langsung terlihat bahwa semakin baru lagu, semakin populer.
+  - **Cepat dan Efisien:** Linear Regression sangat ringan secara komputasi, sehingga cocok sebagai model baseline untuk menguji apakah fitur-fitur seperti year, acousticness, dll. yang mempunyai hubungan linier dengan popularity.
+  - **Interpretatif:** Nilai koefisiennya dapat langsung menunjukkan arah dan kekuatan pengaruh setiap fitur. Misalnya, koefisien besar pada year, maka langsung terlihat bahwa semakin baru lagu, semakin populer.
 
    **Kekurangan:**
-  1. Terlalu simpel untuk fenomena kompleks: Popularitas lagu bukan cuma dipengaruhi satu-dua fitur dengan hubungan lurus. Misalnya, pengaruh energy atau danceability mungkin baru terasa jika dikombinasikan dengan fitur lain — hal ini tidak bisa ditangkap oleh model linier.
-  2. Rentan underfitting: Karena model ini tidak bisa menangkap pola non-linear atau interaksi fitur, hasilnya bisa terlalu sederhana dan tidak mencerminkan kenyataan yang kompleks di dunia musik streaming.
+  - **Terlalu simpel untuk fenomena kompleks:** Popularitas lagu bukan cuma dipengaruhi satu-dua fitur dengan hubungan lurus. Misalnya, pengaruh energy atau danceability mungkin baru terasa jika dikombinasikan dengan fitur lain — hal ini tidak bisa ditangkap oleh model linier.
+  - **Rentan underfitting:** Karena model ini tidak bisa menangkap pola non-linear atau interaksi fitur, hasilnya bisa terlalu sederhana dan tidak mencerminkan kenyataan yang kompleks di dunia musik streaming.
 
 ### Pembuatan model mengguankan algoritma Random Forest
 
@@ -163,22 +163,22 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 - **Parameter Penting:**
 
-  1. n_estimators: Jumlah pohon yang dibangun.
-  2. max_depth: Kedalaman maksimal pohon. Lebih dalam = lebih kompleks.
-  3. min_samples_split: Minimum jumlah sampel untuk membagi node.
-  4. max_features: Berapa banyak fitur yang dipertimbangkan per split.
-  5. random_state: Supaya hasil replikasi tetap sama.
+  - **n_estimators:** Jumlah pohon yang dibangun.
+  - **max_depth:** Kedalaman maksimal pohon. Lebih dalam = lebih kompleks.
+  - **min_samples_split:** Minimum jumlah sampel untuk membagi node.
+  - **max_features:** Berapa banyak fitur yang dipertimbangkan per split.
+  - **random_state:** Supaya hasil replikasi tetap sama.
      
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
-  1. Menangkap pola non-linear dan interaksi fitur: Random Forest mampu mengenali bahwa misalnya lagu yang akustik tapi energik punya popularitas tinggi di tahun tertentu. Hal ini membuatnya jauh lebih fleksibel dibanding Linear Regression.
-  2. Tahan terhadap outlier: Popularitas lagu yang ekstrem (sangat tinggi atau sangat rendah) tidak akan mengganggu model terlalu parah.
-  3. Memberikan informasi feature importance: Sangat berguna untuk mengetahui fitur apa yang secara keseluruhan paling banyak digunakan oleh model saat memutuskan prediksi. Misalnya, loudness, year, dan danceability.
+  - **Menangkap pola non-linear dan interaksi fitur:** Random Forest mampu mengenali bahwa misalnya lagu yang akustik tapi energik punya popularitas tinggi di tahun tertentu. Hal ini membuatnya jauh lebih fleksibel dibanding Linear Regression.
+  - **Tahan terhadap outlier:** Popularitas lagu yang ekstrem (sangat tinggi atau sangat rendah) tidak akan mengganggu model terlalu parah.
+  - **Memberikan informasi feature importance:** Sangat berguna untuk mengetahui fitur apa yang secara keseluruhan paling banyak digunakan oleh model saat memutuskan prediksi. Misalnya, loudness, year, dan danceability.
 
    **Kekurangan:**
-  1. Kurang transparan: Meskipun feature importance bisa diketahui, tetapi bagaimana kombinasi fitur menghasilkan nilai prediksi tertentu tidak bisa diketahui secara persis. Hal ini membuat hasilnya agak sulit untuk dijelaskan ke non-teknikal stakeholder.
-  2. Model besar dan berat: Untuk dataset besar seperti Spotify (170k+ lagu), proses training bisa lumayan memakan waktu dan RAM, apalagi jika tidak dibatasi max_depth atau jumlah pohon (n_estimators).
+  - **Kurang transparan:** Meskipun feature importance bisa diketahui, tetapi bagaimana kombinasi fitur menghasilkan nilai prediksi tertentu tidak bisa diketahui secara persis. Hal ini membuat hasilnya agak sulit untuk dijelaskan ke non-teknikal stakeholder.
+  - **Model besar dan berat:** Untuk dataset besar seperti Spotify (170k+ lagu), proses training bisa lumayan memakan waktu dan RAM, apalagi jika tidak dibatasi max_depth atau jumlah pohon (n_estimators).
 
 ### Pembuatan model menggunakan algoritma XGBoost
 
@@ -188,22 +188,22 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 - **Parameter Penting:**
 
-  1. n_estimators: Jumlah total boosting round.
-  2. learning_rate: Seberapa besar kontribusi tiap pohon baru → kecil = pelan tapi akurat.
-  3. subsample: Persentase data yang digunakan untuk tiap pohon.
-  4. colsample_bytree: Fitur yang digunakan per pohon.
-  5. reg_alpha, reg_lambda: Regularisasi untuk mencegah overfitting.
+  - **n_estimators:** Jumlah total boosting round.
+  - **learning_rate:** Seberapa besar kontribusi tiap pohon baru → kecil = pelan tapi akurat.
+  - **subsample:** Persentase data yang digunakan untuk tiap pohon.
+  - **colsample_bytree:** Fitur yang digunakan per pohon.
+  - **reg_alpha, reg_lambda:** Regularisasi untuk mencegah overfitting.
      
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
-  1. Presisi tinggi: XGBoost sangat powerful dalam mengejar akurasi prediksi. Cocok digunakan dalam proyek ini yang memiliki tujuan membuat model prediksi popularitas dengan performa optimal.
-  2. Menangani kompleksitas dengan 'elegan': Model ini dapat menangkap pengaruh fitur yang hanya muncul di kondisi tertentu (contoh: lagu akustik cenderung tidak populer kecuali jika rilis di tahun 2010 ke atas).
-  3. Mempunyai regularisasi bawaan: Membantu mengurangi risiko overfitting — cocok untuk dataset besar dengan banyak fitur seperti ini.
+  - **Presisi tinggi:** XGBoost sangat powerful dalam mengejar akurasi prediksi. Cocok digunakan dalam proyek ini yang memiliki tujuan membuat model prediksi popularitas dengan performa optimal.
+  - **Menangani kompleksitas dengan 'elegan':** Model ini dapat menangkap pengaruh fitur yang hanya muncul di kondisi tertentu (contoh: lagu akustik cenderung tidak populer kecuali jika rilis di tahun 2010 ke atas).
+  - **Mempunyai regularisasi bawaan:** Membantu mengurangi risiko overfitting — cocok untuk dataset besar dengan banyak fitur seperti ini.
 
    **Kekurangan:**
-  1. Butuh tuning yang teliti: Untuk hasil maksimal, parameter seperti learning_rate, max_depth, subsample, dll., harus disetel dengan hati-hati. Tanpa itu, model bisa underperform atau overfit.
-  2. Kurang interpretatif: Sama seperti Random Forest, model ini tidak bisa dengan mudah bilang "fitur A menaikkan popularitas sebesar sekian". Cocok untuk model akhir, tapi bukan untuk insight yang mudah dijelaskan.
+  - **Butuh tuning yang teliti:** Untuk hasil maksimal, parameter seperti learning_rate, max_depth, subsample, dll., harus disetel dengan hati-hati. Tanpa itu, model bisa underperform atau overfit.
+  - **Kurang interpretatif:** Sama seperti Random Forest, model ini tidak bisa dengan mudah bilang "fitur A menaikkan popularitas sebesar sekian". Cocok untuk model akhir, tapi bukan untuk insight yang mudah dijelaskan.
 
 ## Evaluasi 
 
