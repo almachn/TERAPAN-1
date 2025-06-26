@@ -138,10 +138,13 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 *Algoritma ini akan digunakan sebagai model dasar dalam proyek ini. Tujuannya sendiri adalah untuk mendapatkan tolok ukur performa paling sederhana. Seberapa baik kita bisa memprediksi popularitas hanya dengan mengasumsikan hubungannya lurus (linier) dengan fitur-fitur audio?*
 
 - **Cara Kerja:** Linear Regression mencoba membentuk garis lurus terbaik yang bisa menghubungkan fitur input (X) dengan target output (y). Model ini berusaha mencari koefisien (β) untuk setiap fitur agar selisih antara prediksi dan nilai asli (error) sekecil mungkin.
+
 - **Parameter Penting:**
+  
   1. fit_intercept: Apakah model harus menghitung intercept (bias/konstanta) atau tidak.
   2. normalize / standardize: Untuk normalisasi fitur (sudah deprecated di versi baru scikit-learn).
   3. n_jobs: Jumlah core CPU untuk paralel
+    
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
@@ -157,7 +160,9 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 *Model ini diasumsikan sebagai menjadi model "pekerja keras" karena kemampuannya menangkap hubungan yang lebih rumit (non-linier) antara fitur audio dan popularitas. Biasanya, model ini akan memberikan peningkatan performa yang signifikan dari Linear Regression.*
 
 - **Cara Kerja:** Random Forest adalah ensemble dari banyak decision tree. Ia membentuk banyak pohon keputusan (tree) dari subsample data + fitur acak, lalu merata-ratakan hasilnya untuk regresi. Pendekatan ini membantu mengurangi overfitting yang umum pada decision tree tunggal.
+
 - **Parameter Penting:**
+
   1. n_estimators: Jumlah pohon yang dibangun.
   2. max_depth: Kedalaman maksimal pohon. Lebih dalam = lebih kompleks.
   3. min_samples_split: Minimum jumlah sampel untuk membagi node.
@@ -180,7 +185,9 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 *XGBoost seringkali memberikan akurasi tertinggi untuk data tabular seperti ini. Model ini akan digunakan untuk melihat apakah hasil uji bisa mendapatkan performa terbaik.*
 
 - **Cara Kerja:** XGBoost (Extreme Gradient Boosting) adalah model boosting yang membangun pohon berurutan. Setiap pohon baru belajar dari kesalahan pohon sebelumnya (sisa error yang belum ditebak dengan baik). Dengan teknik boosting ini, model jadi makin presisi seiring pohon ditambahkan.
+
 - **Parameter Penting:**
+
   1. n_estimators: Jumlah total boosting round.
   2. learning_rate: Seberapa besar kontribusi tiap pohon baru → kecil = pelan tapi akurat.
   3. subsample: Persentase data yang digunakan untuk tiap pohon.
