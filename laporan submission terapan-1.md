@@ -64,9 +64,32 @@ Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama **[
 **Kondisi Data:** 
 
 Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kondisi dataset guna mengevaluasi kualitas data serta mengidentifikasi potensi permasalahan. Pemeriksaan ini mencakup beberapa aspek penting, antara lain:
-   1. **Struktur dan Tipe Data:** Melalui fungsi info(), diketahui bahwa seluruh kolom dalam subset dataset tidak mengandung nilai kosong (null).
-   2. **Nilai yang Hilang:** Meskipun tidak ditemukan nilai kosong pada kolom-kolom utama, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data saat pengolahan lebih lanjut dilakukan pada dataset lengkap.
-   3. **Data Duplikat:** Tidak terdapat baris yang duplikat yang ditemukan. Meski demikian, drop_duplicates() tetap dijalankan untuk menjaga konsistensi data secara menyeluruh.
+   1. **Struktur dan Tipe Data:**  Dataset awal memiliki beberapa fitur penting yang merepresentasikan karakteristik lagu baik dari sisi metadata maupun aspek audio. Berikut ini adalah penjelasan ringkas tiap fitur sebelum dilakukan:
+
+   | Nama Kolom     | Tipe Data   | Deskripsi Singkat                                                      |
+| -------------- | ----------- | ---------------------------------------------------------------------- |
+| `id`           | string      | ID unik untuk setiap lagu (di-drop karena non-prediktif)               |
+| `name`         | string      | Judul lagu (di-drop karena unik & tidak informatif untuk model)        |
+| `artists`      | string      | Nama artis (di-drop karena kompleksitas kategorikal tinggi)            |
+| `release_date` | string/date | Tanggal rilis lagu (di-drop karena redundan dengan kolom `year`)       |
+| `year`         | numerik     | Tahun rilis lagu; digunakan karena berhubungan erat dengan popularitas |
+| `acousticness` | numerik     | Seberapa akustik sebuah lagu; nilai 0–1                                |
+| `danceability` | numerik     | Seberapa mudah lagu untuk ditarikan; nilai 0–1                         |
+| `energy`       | numerik     | Intensitas dan kekuatan lagu; nilai 0–1                                |
+| `loudness`     | numerik     | Kekerasan suara dalam desibel                                          |
+| `tempo`        | numerik     | Tempo lagu dalam BPM                                                   |
+| `duration_ms`  | numerik     | Durasi lagu dalam milidetik                                            |
+| `speechiness`  | numerik     | Seberapa banyak unsur vokal yang bersifat “bicara”                     |
+| `popularity`   | numerik     | Target prediksi; skor popularitas lagu (label)                         |
+
+     
+      diketahui bahwa seluruh kolom dalam subset dataset tidak mengandung nilai kosong (null).
+   4. **Nilai yang Hilang:** Meskipun tidak ditemukan nilai kosong pada kolom-kolom utama, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data saat pengolahan lebih lanjut dilakukan pada dataset lengkap.
+   5. **Data Duplikat:** Tidak terdapat baris yang duplikat yang ditemukan. Meski demikian, drop_duplicates() tetap dijalankan untuk menjaga konsistensi data secara menyeluruh.
+   6. **Penghapusan Kolom:** Kolom yang dihapus di antaranya adalah kolom **id, name, artists, release_date**
+      - Baik id maupun name merupakan identifier unik yang berbeda untuk setiap lagu. Karena bersifat individual dan tidak mewakili pola tertentu, fitur-fitur ini tidak memberikan informasi yang berguna bagi model dalam memprediksi popularitas lagu lainnya. Jika tetap disertakan dalam proses pelatihan, model cenderung hanya akan "menghafal" data berdasarkan ID atau judul lagu, alih-alih "belajar" dari pola umum, yang akhirnya bisa menyebabkan overfitting.
+      - Kolom artist termasuk dalam fitur kategorikal berbasis teks yang sangat kompleks. Hal ini disebabkan oleh jumlah artis unik yang sangat banyak — mencapai puluhan ribu entitas. Jika setiap artis dikonversi menjadi fitur numerik, hal ini akan menciptakan dimensi yang sangat tinggi dan justru membuat model menjadi terlalu kompleks dan tidak efisien untuk dipelajari. Akibatnya, performa model bisa menurun dan waktu komputasi meningkat drastis.
+      - Kolom release_date tergolong sebagai fitur yang redundan karena informasi utamanya—yaitu kapan lagu dirilis—sudah secara efektif diwakili oleh kolom year yang lebih ringkas dan mudah diproses. Menambahkan detail seperti tanggal dan bulan hanya akan menambah kompleksitas data tanpa memberikan kontribusi signifikan terhadap kemampuan prediksi model.
 
 ### Explanatory Data Analysis
 
@@ -140,6 +163,17 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 - **Cara Kerja:** Linear Regression mencoba membentuk garis lurus terbaik yang bisa menghubungkan fitur input (X) dengan target output (y). Model ini berusaha mencari koefisien (β) untuk setiap fitur agar selisih antara prediksi dan nilai asli (error) sekecil mungkin.
 
 - **Parameter Penting:**
+
+  Pada tahap ini, digunakan model Linear Regression dari library scikit-learn dengan konfigurasi default, yaitu:
+
+  <pre> ```python from sklearn.linear_model import LinearRegression lr_model = LinearRegression() lr_model.fit(X_train_scaled, y_train) ``` </pre>
+
+  - **fit_intercept=True:** Model menghitung nilai intercept (bias), yaitu titik potong garis regresi dengan sumbu Y. Ini berguna jika data tidak terpusat di nol.
+  - **n_jobs=None:** Pemrosesan dilakukan secara serial (satu core), karena tidak ada paralelisasi yang diaktifkan.
+  - **positive=False:** Koefisien regresi diperbolehkan bernilai negatif (default ini cocok untuk data umum).
+  - normalize tidak digunakan karena sudah deprecated dan scaling dilakukan sebelumnya menggunakan StandardScaler.
+
+Meskipun parameter tidak diubah secara eksplisit, penggunaan default ini sudah mencukupi sebagai baseline untuk model regresi linier, sebelum beralih ke model yang lebih kompleks seperti Random Forest dan XGBoost.
   
   - **fit_intercept:** Apakah model harus menghitung intercept (bias/konstanta) atau tidak.
   - **normalize / standardize:** Untuk normalisasi fitur (sudah deprecated di versi baru scikit-learn).
@@ -163,11 +197,11 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 - **Parameter Penting:**
 
-  - **n_estimators:** Jumlah pohon yang dibangun.
-  - **max_depth:** Kedalaman maksimal pohon. Lebih dalam = lebih kompleks.
-  - **min_samples_split:** Minimum jumlah sampel untuk membagi node.
-  - **max_features:** Berapa banyak fitur yang dipertimbangkan per split.
-  - **random_state:** Supaya hasil replikasi tetap sama.
+  - **n_estimators: 100** Model akan membangun 100 pohon keputusan dalam ensemble Random Forest.
+  - **random_state: 42** Menentukan seed acak agar hasil eksperimen bisa direproduksi.
+  -  **n_jobs=-1** Memanfaatkan semua core CPU yang tersedia untuk proses training paralel.
+ 
+Model ini dilatih menggunakan data latih yang telah di-scaling, dan kemudian digunakan untuk memprediksi skor popularitas pada data uji.
      
 - **Kelebihan dan Kekurangannya:**
   
@@ -188,12 +222,17 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 - **Parameter Penting:**
 
-  - **n_estimators:** Jumlah total boosting round.
-  - **learning_rate:** Seberapa besar kontribusi tiap pohon baru → kecil = pelan tapi akurat.
-  - **subsample:** Persentase data yang digunakan untuk tiap pohon.
-  - **colsample_bytree:** Fitur yang digunakan per pohon.
-  - **reg_alpha, reg_lambda:** Regularisasi untuk mencegah overfitting.
-     
+  - **objective='reg:squarederror':** Meminimalkan mean squared error (MSE) dan memastikan model fokus memprediksi nilai numerik (skor popularitas) seakurat mungkin.
+  - **random_state=42** Untuk reproducibility. Sama seperti di Random Forest, ini menjaga hasil model tetap konsisten meski dijalankan berkali-kali.
+
+  Model ini menggunakan konfigurasi default lainnya seperti:
+  
+  - n_estimators=100 (jumlah pohon),
+  - learning_rate=0.3 (kecepatan belajar),
+  - max_depth=6 (kedalaman maksimum pohon),
+  - subsample=1 dan colsample_bytree=1 (menggunakan seluruh data dan fitur untuk tiap pohon).
+
+Penggunaan parameter dasar ini bertujuan untuk melakukan perbandingan performa awal yang adil antar model, sebelum melakukan tuning lebih lanjut.
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
