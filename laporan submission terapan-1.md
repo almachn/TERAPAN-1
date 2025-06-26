@@ -175,10 +175,6 @@ Setelah melalui tahap persiapan data, data yang telah siap digunakan akan dimanf
 
 Meskipun parameter tidak diubah secara eksplisit, penggunaan default ini sudah mencukupi sebagai baseline untuk model regresi linier, sebelum beralih ke model yang lebih kompleks seperti Random Forest dan XGBoost.
   
-  - **fit_intercept:** Apakah model harus menghitung intercept (bias/konstanta) atau tidak.
-  - **normalize / standardize:** Untuk normalisasi fitur (sudah deprecated di versi baru scikit-learn).
-  - **n_jobs:** Jumlah core CPU untuk paralel
-    
 - **Kelebihan dan Kekurangannya:**
   
   **Kelebihan:**
