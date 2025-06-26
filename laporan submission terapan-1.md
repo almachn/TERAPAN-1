@@ -57,11 +57,13 @@ Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama **[
 
 **Karakteristik Dataset Asli (Spotify Dataset 1921-2020 160K Tracks):**
 
-- Jumlah Kolom: 19 Kolom (valence, year, acousticness, artists, danceability. duration_ms, energy, explicit, id, instrumentalness, key, liveness, loudness, mode, name, popularity, release_date, speechiness, tempo)
-- Jumlah Entries: 170,653 Entries pada Tiap-Tiap Kolom
-- Tipe Data: 9 Kolom Float, 6 Kolom Integer, dan 4 Kolom Object
+- **Jumlah Kolom:** 19 Kolom (valence, year, acousticness, artists, danceability. duration_ms, energy, explicit, id, instrumentalness, key, liveness, loudness, mode, name, popularity, release_date, speechiness, tempo)
+- **Jumlah Entries:** 170,653 Entries pada Tiap-Tiap Kolom
+- **Tipe Data:** 9 Kolom Float, 6 Kolom Integer, dan 4 Kolom Object
 
-**Kondisi Data:** Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kondisi dataset guna mengevaluasi kualitas data serta mengidentifikasi potensi permasalahan. Pemeriksaan ini mencakup beberapa aspek penting, antara lain:
+**Kondisi Data:** 
+
+Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kondisi dataset guna mengevaluasi kualitas data serta mengidentifikasi potensi permasalahan. Pemeriksaan ini mencakup beberapa aspek penting, antara lain:
    1. **Struktur dan Tipe Data:** Melalui fungsi info(), diketahui bahwa seluruh kolom dalam subset dataset tidak mengandung nilai kosong (null).
    2. **Nilai yang Hilang:** Meskipun tidak ditemukan nilai kosong pada kolom-kolom utama, fungsi dropna() tetap digunakan sebagai langkah preventif untuk memastikan kebersihan data saat pengolahan lebih lanjut dilakukan pada dataset lengkap.
    3. **Data Duplikat:** Tidak terdapat baris yang duplikat yang ditemukan. Meski demikian, drop_duplicates() tetap dijalankan untuk menjaga konsistensi data secara menyeluruh.
