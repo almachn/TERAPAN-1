@@ -55,15 +55,14 @@ Dataset yang digunakan dalam proyek ini berasal dari pengguna Kaggle bernama **[
 
 **Sumber Data:** [Spotify Dataset 1921-2020](https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-1921-2020-160k-tracks)
 
-**Karakteristik Dataset Asli (Spotify Dataset 1921-2020 160K Tracks):**
+**Kondisi Dataset (Spotify Dataset 1921-2020 160K Tracks):**
+
+Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kondisi dataset guna mengevaluasi kualitas data serta mengidentifikasi potensi permasalahan. Pemeriksaan ini mencakup beberapa aspek penting seperti yang tertera di bawah ini.
 
 - **Jumlah Kolom:** 19 Kolom (valence, year, acousticness, artists, danceability. duration_ms, energy, explicit, id, instrumentalness, key, liveness, loudness, mode, name, popularity, release_date, speechiness, tempo)
 - **Jumlah Entries:** 170,653 Entries pada Tiap-Tiap Kolom
 - **Tipe Data:** 9 Kolom Float, 6 Kolom Integer, dan 4 Kolom Object
 
-**Kondisi Data:** 
-
-Sebelum masuk ke tahap data preparation, dilakukan peninjauan awal terhadap kondisi dataset guna mengevaluasi kualitas data serta mengidentifikasi potensi permasalahan. Pemeriksaan ini mencakup beberapa aspek penting, antara lain:
    1. **Struktur dan Tipe Data:**  Dataset awal memiliki beberapa fitur penting yang merepresentasikan karakteristik lagu baik dari sisi metadata maupun aspek audio. Berikut ini adalah penjelasan ringkas tiap fitur sebelum dilakukan:
 
    | Nama Kolom     | Tipe Data   | Deskripsi Singkat                                                      |
