@@ -3,7 +3,7 @@
 Proyek ini mengeksplorasi dataset lagu Spotify dari tahun 1921 hingga 2020 dengan berbagai fitur akustik, tren popularitas, dan karakteristik audio
 
 ## Project Overview
-Musik telah menjadi bagian tak terpisahkan dari kehidupan manusia—bukan hanya sebagai bentuk hiburan, tetapi juga sebagai media ekspresi, identitas budaya, bahkan alat politik dan sosial. Dalam satu abad terakhir, industri musik mengalami perubahan yang sangat masif, baik dari sisi gaya, teknologi produksi, hingga cara distribusinya. Dari piringan hitam ke kaset, dari CD ke MP3, hingga kini mendominasi melalui layanan streaming digital seperti Spotify [1](https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96).
+Musik telah menjadi bagian tak terpisahkan dari kehidupan manusia—bukan hanya sebagai bentuk hiburan, tetapi juga sebagai media ekspresi, identitas budaya, bahkan alat politik dan sosial. Dalam satu abad terakhir, industri musik mengalami perubahan yang sangat masif, baik dari sisi gaya, teknologi produksi, hingga cara distribusinya. Dari piringan hitam ke kaset, dari CD ke MP3, hingga kini mendominasi melalui layanan streaming digital seperti Spotify [1].
 
 Di era streaming, data adalah raja. Spotify, sebagai salah satu platform musik terbesar di dunia, menyimpan jejak digital dari jutaan lagu dan interaksinya dengan pengguna. Setiap lagu yang diunggah ke platform ini tidak hanya terdiri dari judul dan artisnya saja, tetapi juga diperkaya dengan beragam fitur audio: mulai dari danceability, energy, acousticness, valence, hingga tempo dan liveness. Fitur-fitur ini dihasilkan dari pemrosesan sinyal digital dan menjadi representasi numerik dari karakteristik suara lagu tersebut. Namun, tidak semua lagu mendapatkan popularitas yang sama. Sebagian lagu bisa merajai tangga lagu, viral di media sosial, dan menjadi bagian dari budaya pop; sementara sebagian lainnya nyaris tidak terdengar. 
 
@@ -34,19 +34,18 @@ Untuk mencapai tujuan utama, yakni memprediksi popularits lagu berdasarkan karak
 
 **1. Linear Regression**
 
-- **Pendekatan:** Model regresi linier digunakan sebagai baseline sederhana yang mengasumsikan hubungan linier antara fitur dan target popularitas. [2](https://doi.org/10.32877/bt.v7i3.2228)
-
-- Teknik: Menggunakan LinearRegression dari sklearn untuk mempelajari hubungan antara fitur numerik seperti year, acousticness, danceability, dll., terhadap skor popularitas. Koefisien model dianalisis untuk mengukur besarnya pengaruh masing-masing fitur (dalam bentuk nilai absolut).
+- **Pendekatan:** Model regresi linier digunakan sebagai baseline sederhana yang mengasumsikan hubungan linier antara fitur dan target popularitas. [2]
+- **Teknik:** Menggunakan LinearRegression dari sklearn untuk mempelajari hubungan antara fitur numerik seperti year, acousticness, danceability, dll., terhadap skor popularitas. Koefisien model dianalisis untuk mengukur besarnya pengaruh masing-masing fitur (dalam bentuk nilai absolut).
 
 **2. Random Forest Regressor:**
 
-- **Pendekatan:** Algoritma ensemble berbasis decision tree yang mampu menangani hubungan non-linear serta interaksi kompleks antar fitur. [3](https://doi.org/10.35970/infotekmesin.v14i1.1751).
+- **Pendekatan:** Algoritma ensemble berbasis decision tree yang mampu menangani hubungan non-linear serta interaksi kompleks antar fitur. [3].
 
 - **Teknik:** Menggunakan Random Forest Regressor dari sklearn.ensemble untuk membuat banyak decision tree dan menggabungkan prediksinya. Model ini juga memberikan fitur feature_importances_ untuk mengevaluasi pengaruh relatif setiap fitur terhadap prediksi.
 
 **3. XGBoost Regressor**
 
-- **Pendekatan:** Model gradient boosting yang kuat dan efisien, dirancang untuk performa tinggi dalam berbagai jenis data. [4](https://doi.org/10.36040/jati.v7i5.7308).
+- **Pendekatan:** Model gradient boosting yang kuat dan efisien, dirancang untuk performa tinggi dalam berbagai jenis data [4].
 
 - **Teknik:** Menggunakan XGBRegressor dari library xgboost, yang membangun model secara bertahap dengan mengoreksi kesalahan dari prediksi sebelumnya. Fitur penting diambil berdasarkan bobot kontribusi setiap fitur dalam proses boosting.
 
@@ -353,15 +352,14 @@ Meskipun terdapat ruang untuk pengembangan lebih lanjut, seperti integrasi data 
 
 
 
-[1]: https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96
+[1]: Fitradhi, N. R., Firman Hidayat, M., Saputro, T. W., Alifian, M. G., & Sari, A. P. (2023). Laporan Final Project Machine Learning Rekomendasi Musik Spotify Menggunakan Metode K-Means. Seminar Nasional Informatika Bela Negara (SANTIKA), 3, 2747–0563. Availible: [https://doi.org/10.32877/bt.v7i3.2228](https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96)
 
-[2]: https://doi.org/10.32877/bt.v7i3.2228
+[2]: hErvan Triyanto, Heri Sismoro, A. D. L. (2019). Implementasi Algoritma Regresi Linear Berganda Untuk Memprediksi. Implementasi Algoritma Regresi Linear Berganda Untuk Memprediksi Produksi Padi Di Kabupaten Bantul, 4(2), 73–86. https://doi.org/10.32877/bt.v7i3.2228 Availible: [2](https://doi.org/10.32877/bt.v7i3.2228)
 
-[3]: https://doi.org/10.35970/infotekmesin.v14i1.1751
+[3]: Sari, L., Romadloni, A., & Listyaningrum, R. (2023). Penerapan Data Mining dalam Analisis Prediksi Kanker Paru Menggunakan Algoritma Random Forest. Infotekmesin, 14(1), 155–162. https://doi.org/10.35970/infotekmesin.v14i1.1751. Availible: [3](https://doi.org/10.35970/infotekmesin.v14i1.1751)
 
-[4]: https://doi.org/10.36040/jati.v7i5.7308
+[4]: Dava Maulana, M., Id Hadiana, A., & Rakhmat Umbara, F. (2024). Algoritma Xgboost Untuk Klasifikasi Kualitas Air Minum. JATI (Jurnal Mahasiswa Teknik Informatika), 7(5), 3251–3256. https://doi.org/10.36040/jati.v7i5.7308 Availible: [4](https://doi.org/10.36040/jati.v7i5.7308)
 
-[5]: https://doi.org/10.29207/resti.v5i1.2815
 
 
 
