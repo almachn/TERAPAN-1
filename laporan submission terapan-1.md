@@ -346,11 +346,11 @@ Meskipun terdapat ruang untuk pengembangan lebih lanjut, seperti integrasi data 
 
 [1]: Fitradhi, N. R., Firman Hidayat, M., Saputro, T. W., Alifian, M. G., & Sari, A. P. (2023). Laporan Final Project Machine Learning Rekomendasi Musik Spotify Menggunakan Metode K-Means. Seminar Nasional Informatika Bela Negara (SANTIKA), 3, 2747–0563. Availible: [https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96](https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96)
 
-[2]: hErvan Triyanto, Heri Sismoro, A. D. L. (2019). Implementasi Algoritma Regresi Linear Berganda Untuk Memprediksi. Implementasi Algoritma Regresi Linear Berganda Untuk Memprediksi Produksi Padi Di Kabupaten Bantul, 4(2), 73–86. https://doi.org/10.32877/bt.v7i3.2228 Availible: [https://doi.org/10.32877/bt.v7i3.2228](https://doi.org/10.32877/bt.v7i3.2228)
+[2]: hErvan Triyanto, Heri Sismoro, A. D. L. (2019). Implementasi Algoritma Regresi Linear Berganda Untuk Memprediksi. Implementasi Algoritma Regresi Linear Berganda Untuk Memprediksi Produksi Padi Di Kabupaten Bantul, 4(2), 73–86. Availible: [https://doi.org/10.32877/bt.v7i3.2228](https://doi.org/10.32877/bt.v7i3.2228)
 
-[3]: Sari, L., Romadloni, A., & Listyaningrum, R. (2023). Penerapan Data Mining dalam Analisis Prediksi Kanker Paru Menggunakan Algoritma Random Forest. Infotekmesin, 14(1), 155–162. https://doi.org/10.35970/infotekmesin.v14i1.1751. Availible: [https://doi.org/10.32877/bt.v7i3.2228](https://doi.org/10.35970/infotekmesin.v14i1.1751)
+[3]: Sari, L., Romadloni, A., & Listyaningrum, R. (2023). Penerapan Data Mining dalam Analisis Prediksi Kanker Paru Menggunakan Algoritma Random Forest. Infotekmesin, 14(1), 155–162. . Availible: [https://doi.org/10.32877/bt.v7i3.2228](https://doi.org/10.35970/infotekmesin.v14i1.1751)
 
-[4]: Dava Maulana, M., Id Hadiana, A., & Rakhmat Umbara, F. (2024). Algoritma Xgboost Untuk Klasifikasi Kualitas Air Minum. JATI (Jurnal Mahasiswa Teknik Informatika), 7(5), 3251–3256. https://doi.org/10.36040/jati.v7i5.7308 Availible: [https://doi.org/10.36040/jati.v7i5.7308](https://doi.org/10.36040/jati.v7i5.7308)
+[4]: Dava Maulana, M., Id Hadiana, A., & Rakhmat Umbara, F. (2024). Algoritma Xgboost Untuk Klasifikasi Kualitas Air Minum. JATI (Jurnal Mahasiswa Teknik Informatika), 7(5), 3251–3256.  Availible: [https://doi.org/10.36040/jati.v7i5.7308](https://doi.org/10.36040/jati.v7i5.7308)
 
 
 
