@@ -342,15 +342,7 @@ Model yang dikembangkan mampu mengidentifikasi pola yang signifikan, memberikan 
 
 Meskipun terdapat ruang untuk pengembangan lebih lanjut, seperti integrasi data eksternal atau fitur lirik, proyek ini memberikan fondasi kuat bagi upaya data-driven decision making dalam dunia musik dan konten digital.
 
-
-
-
-
-
-
-
-
-
+## **Reference**
 
 [1]: Fitradhi, N. R., Firman Hidayat, M., Saputro, T. W., Alifian, M. G., & Sari, A. P. (2023). Laporan Final Project Machine Learning Rekomendasi Musik Spotify Menggunakan Metode K-Means. Seminar Nasional Informatika Bela Negara (SANTIKA), 3, 2747–0563. Availible: [https://doi.org/10.32877/bt.v7i3.2228](https://santika.upnjatim.ac.id/submissions/index.php/santika/article/view/201/96)
 
